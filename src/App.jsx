@@ -5,7 +5,7 @@ import DeckBuilder from './components/DeckBuilder.jsx';
 import Instructions from './components/Instructions.jsx';
 import { Deck, DECK_MIN } from './models/Deck.js';
 import { CardType } from './models/Card.js';
-import './App.css';
+import './styles/App.css';
 
 function App() {
   const [currentScreen, setCurrentScreen] = useState('start');

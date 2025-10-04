@@ -78,8 +78,10 @@ src/
 ├── controllers/       # Game logic controllers
 ├── models/           # Data models and business logic
 ├── constants/        # Shared constants and enums
+├── styles/           # CSS stylesheets
+│   ├── App.css       # Main application styles
+│   └── index.css     # Global styles and resets
 ├── App.jsx           # Main app component
-├── App.css           # Global styles
 └── index.js          # Entry point
 ```
 

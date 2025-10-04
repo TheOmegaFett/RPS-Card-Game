@@ -85,8 +85,11 @@ src/
 ├── controllers/       # Game logic controllers
 ├── models/           # Data models (Card, Deck, Player)
 ├── constants/        # Shared constants and card definitions
+├── styles/           # CSS stylesheets
+│   ├── App.css       # Main application styles
+│   └── index.css     # Global styles and resets
 ├── App.jsx           # Main app component
-└── App.css           # Global styles
+└── index.js          # Entry point
 ```
 
 ### Code Quality
@@ -96,7 +99,7 @@ src/
 - ✅ Performance optimizations (memoization)
 - ✅ Accessibility compliant (WCAG 2.1)
 
-See [AGENTS.md](AGENTS.md) for complete coding standards and developer guidelines.
+See [STYLE_GUIDE.md](STYLE_GUIDE.md) for complete coding standards and developer guidelines.
 
 ## Browser Support
 
