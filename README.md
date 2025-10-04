@@ -108,6 +108,10 @@ See [STYLE_GUIDE.md](STYLE_GUIDE.md) for complete coding standards and developer
 - Safari (latest)
 - Edge (latest)
 
+## AI Acknowledgment
+
+This project used AI code suggestions (Amp by Sourcegraph). All code was reviewed, tested, and licensed by the author. Significant AI-generated changes are marked with "Co-authored-by" in commit messages.
+
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
