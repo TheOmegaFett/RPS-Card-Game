@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import StartScreen from './components/StartScreen.jsx';
 import GameBoard from './components/GameBoard.jsx';
 import DeckBuilder from './components/DeckBuilder.jsx';
+import Instructions from './components/Instructions.jsx';
 import { Deck } from './models/Deck.js';
 import { CardType } from './models/Card.js';
 import './App.css';
@@ -115,6 +116,10 @@ function App() {
     setPlayerDeck(null);
   };
 
+  const handleInstructions = () => {
+    setCurrentScreen('instructions');
+  };
+
   return (
     <div className="App">
       {currentScreen === 'start' && (
@@ -122,7 +127,11 @@ function App() {
           onNewGame={handleNewGame}
           onBuildDeck={handleBuildDeck}
           onImportDeck={handleImportDeck}
+          onInstructions={handleInstructions}
         />
+      )}
+      {currentScreen === 'instructions' && (
+        <Instructions onBack={handleBackToMenu} />
       )}
       {currentScreen === 'deckbuilder' && (
         <DeckBuilder 

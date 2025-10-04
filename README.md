@@ -16,7 +16,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser
 
 - 20-card deck building with rarity limits
 - Special card types with emojis
-- Best of 5 rounds gameplay
+- Play until one player runs out of cards (10-20 turns)
 - Deck import from .txt files
 - Responsive design
 

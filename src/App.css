@@ -416,6 +416,149 @@
   justify-content: center;
 }
 
+.instructions-screen {
+  padding: 2rem;
+  max-width: 900px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.instructions-screen h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.instructions-section {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(10px);
+}
+
+.instructions-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+  padding-bottom: 0.75rem;
+}
+
+.instructions-section p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.instructions-section ul {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  padding-left: 1.5rem;
+  margin: 1rem 0;
+}
+
+.instructions-section li {
+  margin-bottom: 0.75rem;
+}
+
+.card-matchups {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-top: 1rem;
+}
+
+.matchup {
+  font-size: 1.3rem;
+  padding: 0.75rem;
+  margin: 0.5rem 0;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.card-icon {
+  font-size: 1.5rem;
+  padding: 0 0.5rem;
+}
+
+.card-types {
+  margin-top: 1.5rem;
+}
+
+.rarity-group {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.rarity-group.legendary {
+  border-color: #ff9800;
+  background: rgba(255, 152, 0, 0.1);
+}
+
+.rarity-group h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1.25rem;
+  color: #ffd700;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.card-example {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.2s ease;
+}
+
+.card-example:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: translateX(5px);
+}
+
+.card-example .card-icon {
+  font-size: 2rem;
+  min-width: 60px;
+  text-align: center;
+}
+
+.card-example .card-name {
+  font-weight: bold;
+  font-size: 1.1rem;
+  min-width: 140px;
+}
+
+.card-example .card-effect {
+  font-size: 0.95rem;
+  font-style: italic;
+  opacity: 0.9;
+  flex: 1;
+}
+
+.instructions-screen .back-btn {
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 300px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 @media (max-width: 768px) {
   .start-screen h1 {
     font-size: 2rem;
@@ -444,5 +587,28 @@
 
   .card-info {
     width: 100%;
+  }
+
+  .instructions-screen {
+    padding: 1rem;
+  }
+
+  .instructions-section {
+    padding: 1.5rem;
+  }
+
+  .instructions-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .card-example {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .card-example .card-name,
+  .card-example .card-effect {
+    min-width: auto;
   }
 }

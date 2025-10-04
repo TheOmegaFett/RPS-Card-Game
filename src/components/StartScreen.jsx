@@ -1,6 +1,6 @@
 import React from 'react';
 
-function StartScreen({ onNewGame, onBuildDeck, onImportDeck }) {
+function StartScreen({ onNewGame, onBuildDeck, onImportDeck, onInstructions }) {
   return (
     <div className="start-screen">
       <h1>Rock Paper Scissors Card Game</h1>
@@ -13,6 +13,9 @@ function StartScreen({ onNewGame, onBuildDeck, onImportDeck }) {
         </button>
         <button onClick={onImportDeck} className="menu-btn">
           Import Deck
+        </button>
+        <button onClick={onInstructions} className="menu-btn">
+          Instructions
         </button>
       </div>
     </div>
