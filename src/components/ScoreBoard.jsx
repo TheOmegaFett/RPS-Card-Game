@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function ScoreBoard({ playerScore, aiScore }) {
   return (
@@ -7,5 +8,10 @@ function ScoreBoard({ playerScore, aiScore }) {
     </div>
   );
 }
+
+ScoreBoard.propTypes = {
+  playerScore: PropTypes.number.isRequired,
+  aiScore: PropTypes.number.isRequired,
+};
 
 export default ScoreBoard;

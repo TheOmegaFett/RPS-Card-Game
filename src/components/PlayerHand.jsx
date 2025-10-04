@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import CardButton from './CardButton.jsx';
 
 function PlayerHand({ hand, onCardClick }) {
@@ -17,5 +18,10 @@ function PlayerHand({ hand, onCardClick }) {
     </div>
   );
 }
+
+PlayerHand.propTypes = {
+  hand: PropTypes.array.isRequired,
+  onCardClick: PropTypes.func.isRequired,
+};
 
 export default PlayerHand;

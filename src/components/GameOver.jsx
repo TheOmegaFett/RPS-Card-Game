@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function GameOver({ playerScore, aiScore, onPlayAgain, onBackToMenu }) {
   const getResult = () => {
@@ -35,10 +36,10 @@ function GameOver({ playerScore, aiScore, onPlayAgain, onBackToMenu }) {
           </div>
         </div>
         <div className="game-over-actions">
-          <button className="menu-btn" onClick={onPlayAgain}>
+          <button type="button" className="menu-btn" onClick={onPlayAgain}>
             Play Again
           </button>
-          <button className="menu-btn secondary" onClick={onBackToMenu}>
+          <button type="button" className="menu-btn secondary" onClick={onBackToMenu}>
             Main Menu
           </button>
         </div>
@@ -46,5 +47,12 @@ function GameOver({ playerScore, aiScore, onPlayAgain, onBackToMenu }) {
     </div>
   );
 }
+
+GameOver.propTypes = {
+  playerScore: PropTypes.number.isRequired,
+  aiScore: PropTypes.number.isRequired,
+  onPlayAgain: PropTypes.func.isRequired,
+  onBackToMenu: PropTypes.func.isRequired,
+};
 
 export default GameOver;

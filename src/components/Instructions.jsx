@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { CARD_EMOJIS } from '../constants/cardEmojis.js';
 import { CardType } from '../models/Card.js';
 
@@ -128,11 +129,15 @@ function Instructions({ onBack }) {
         </ul>
       </section>
 
-      <button onClick={onBack} className="menu-btn back-btn">
+      <button type="button" onClick={onBack} className="menu-btn back-btn">
         Back to Menu
       </button>
     </div>
   );
 }
+
+Instructions.propTypes = {
+  onBack: PropTypes.func.isRequired,
+};
 
 export default Instructions;

@@ -9,15 +9,26 @@ export const CardType = {
   BLOCK_DISCARD: "Block and Discard One",
   PAPER_ROCK: "Paper and Rock",
   ROCK_SCISSORS: "Rock and Scissors",
-  SCISSORS_PAPER: "Scissors and Paper"
+  SCISSORS_PAPER: "Scissors and Paper",
 };
 
 export class Card {
+  /**
+   * Creates a new card instance
+   * @param {string} cardType - The type of card (from CardType enum)
+   */
   constructor(cardType) {
     this.type = cardType;
     this.baseTypes = this._getBaseTypes();
   }
 
+  /**
+   * Determines the base types for combat resolution
+   * Hybrid cards return multiple base types, while standard cards return one
+   * Block cards return an empty array as they don't participate in combat
+   * @returns {Array<string>} Array of base card types for this card
+   * @private
+   */
   _getBaseTypes() {
     if (this.type === CardType.PAPER_ROCK) {
       return [CardType.PAPER, CardType.ROCK];

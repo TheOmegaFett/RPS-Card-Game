@@ -1,95 +1,139 @@
-import React, { useState } from 'react';
-import { Deck } from '../models/Deck.js';
-import { CardType } from '../models/Card.js';
-import { CARD_EMOJIS, CARD_LIMITS } from '../constants/cardEmojis.js';
+import React, { useState, useMemo, useCallback } from "react";
+import PropTypes from 'prop-types';
+import { Deck } from "../models/Deck.js";
+import { CardType } from "../models/Card.js";
+import { CARD_EMOJIS, CARD_LIMITS } from "../constants/cardEmojis.js";
+
+const RARITY_ORDER = { Common: 0, Uncommon: 1, Rare: 2, Legendary: 3 };
 
 function DeckBuilder({ onDeckComplete, onBack }) {
   const [deck, setDeck] = useState(new Deck());
   const [deckCards, setDeckCards] = useState([]);
 
-  const rarityOrder = { 'Common': 0, 'Uncommon': 1, 'Rare': 2, 'Legendary': 3 };
-  const cardTypes = Object.values(CardType).sort((a, b) => {
-    const rarityA = CARD_LIMITS[a]?.rarity || 'Common';
-    const rarityB = CARD_LIMITS[b]?.rarity || 'Common';
-    return rarityOrder[rarityA] - rarityOrder[rarityB];
-  });
+  /**
+   * Sorted array of card types ordered by rarity (common to legendary)
+   */
+  const cardTypes = useMemo(() => {
+    return Object.values(CardType).sort((a, b) => {
+      const rarityA = CARD_LIMITS[a]?.rarity || "Common";
+      const rarityB = CARD_LIMITS[b]?.rarity || "Common";
+      return RARITY_ORDER[rarityA] - RARITY_ORDER[rarityB];
+    });
+  }, []);
 
-  const getCardCount = (cardType) => {
-    return deckCards.filter(c => c === cardType).length;
-  };
+  /**
+   * Memoized card count map for efficient lookups
+   */
+  const cardCountMap = useMemo(() => {
+    const counts = {};
+    deckCards.forEach((cardType) => {
+      counts[cardType] = (counts[cardType] || 0) + 1;
+    });
+    return counts;
+  }, [deckCards]);
 
-  const addCard = (cardType) => {
-    const newDeck = new Deck();
-    deckCards.forEach(card => newDeck.addCard(card));
-    
-    if (newDeck.addCard(cardType)) {
-      setDeckCards([...deckCards, cardType]);
-      setDeck(newDeck);
-    } else {
-      alert('Cannot add more of this card (deck limit reached)');
-    }
-  };
+  /**
+   * Gets the count of a specific card type in the current deck
+   * @param {string} cardType - The card type to count
+   * @returns {number} Number of cards of this type
+   */
+  const getCardCount = useCallback(
+    (cardType) => {
+      return cardCountMap[cardType] || 0;
+    },
+    [cardCountMap]
+  );
 
-  const removeCard = (cardType) => {
-    const index = deckCards.findIndex(c => c === cardType);
-    if (index !== -1) {
-      const newCards = [...deckCards];
-      newCards.splice(index, 1);
-      
+  /**
+   * Adds a card to the deck if within limits
+   * @param {string} cardType - The card type to add
+   */
+  const addCard = useCallback(
+    (cardType) => {
       const newDeck = new Deck();
-      newCards.forEach(card => newDeck.addCard(card));
-      
-      setDeckCards(newCards);
-      setDeck(newDeck);
-    }
-  };
+      deckCards.forEach((card) => newDeck.addCard(card));
 
-  const handleStartGame = () => {
+      if (newDeck.addCard(cardType)) {
+        setDeckCards([...deckCards, cardType]);
+        setDeck(newDeck);
+      } else {
+        alert("Cannot add more of this card (deck limit reached)");
+      }
+    },
+    [deckCards]
+  );
+
+  /**
+   * Removes a card from the deck
+   * @param {string} cardType - The card type to remove
+   */
+  const removeCard = useCallback(
+    (cardType) => {
+      const index = deckCards.findIndex((c) => c === cardType);
+      if (index !== -1) {
+        const newCards = [...deckCards];
+        newCards.splice(index, 1);
+
+        const newDeck = new Deck();
+        newCards.forEach((card) => newDeck.addCard(card));
+
+        setDeckCards(newCards);
+        setDeck(newDeck);
+      }
+    },
+    [deckCards]
+  );
+
+  /**
+   * Validates deck and starts the game
+   */
+  const handleStartGame = useCallback(() => {
     if (deck.isValid()) {
       onDeckComplete(deck);
     } else {
-      alert('Deck must have at least 10 cards!');
+      alert("Deck must have at least 10 cards!");
     }
-  };
+  }, [deck, onDeckComplete]);
 
-  const handleExportDeck = () => {
+  /**
+   * Exports the current deck to a text file
+   */
+  const handleExportDeck = useCallback(() => {
     if (deckCards.length === 0) {
-      alert('Add some cards to your deck first!');
+      alert("Add some cards to your deck first!");
       return;
     }
 
-    const cardCounts = {};
-    deckCards.forEach(cardType => {
-      cardCounts[cardType] = (cardCounts[cardType] || 0) + 1;
-    });
-
     const lines = [];
     Object.entries(CardType).forEach(([key, value]) => {
-      if (cardCounts[value]) {
-        lines.push(`${key} ${cardCounts[value]}`);
+      if (cardCountMap[value]) {
+        lines.push(`${key} ${cardCountMap[value]}`);
       }
     });
 
-    const content = lines.join('\n');
-    const blob = new Blob([content], { type: 'text/plain' });
+    const content = lines.join("\n");
+    const blob = new Blob([content], { type: "text/plain" });
     const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
+    const link = document.createElement("a");
     link.href = url;
-    link.download = 'my-deck.txt';
+    link.download = "my-deck.txt";
     link.click();
-    URL.revokeObjectURL(url);
-  };
+
+    setTimeout(() => {
+      URL.revokeObjectURL(url);
+    }, 100);
+  }, [deckCards.length, cardCountMap]);
 
   return (
     <div className="deck-builder">
       <h1>Build Your Deck</h1>
       <p>Deck Size: {deckCards.length} / 20 (Minimum: 10)</p>
-      
+
       <div className="card-selection">
         {cardTypes.map((cardType) => {
           const count = getCardCount(cardType);
           const limit = CARD_LIMITS[cardType];
-          
+
           return (
             <div key={cardType} className="card-selector">
               <div className="card-info">
@@ -100,18 +144,24 @@ function DeckBuilder({ onDeckComplete, onBack }) {
                 </span>
               </div>
               <div className="card-controls">
-                <button 
+                <button
+                  type="button"
                   onClick={() => removeCard(cardType)}
                   disabled={count === 0}
                   className="btn-small"
+                  aria-label={`Remove ${cardType}`}
                 >
                   -
                 </button>
-                <span className="card-count">{count} / {limit.max}</span>
-                <button 
+                <span className="card-count">
+                  {count} / {limit.max}
+                </span>
+                <button
+                  type="button"
                   onClick={() => addCard(cardType)}
                   disabled={count >= limit.max || deckCards.length >= 20}
                   className="btn-small"
+                  aria-label={`Add ${cardType}`}
                 >
                   +
                 </button>
@@ -120,20 +170,22 @@ function DeckBuilder({ onDeckComplete, onBack }) {
           );
         })}
       </div>
-      
+
       <div className="deck-actions">
-        <button onClick={onBack} className="menu-btn secondary">
+        <button type="button" onClick={onBack} className="menu-btn secondary">
           Back
         </button>
-        <button 
-          onClick={handleExportDeck} 
+        <button
+          type="button"
+          onClick={handleExportDeck}
           className="menu-btn secondary"
           disabled={deckCards.length === 0}
         >
           Export Deck
         </button>
-        <button 
-          onClick={handleStartGame} 
+        <button
+          type="button"
+          onClick={handleStartGame}
           className="menu-btn"
           disabled={!deck.isValid()}
         >
@@ -143,5 +195,10 @@ function DeckBuilder({ onDeckComplete, onBack }) {
     </div>
   );
 }
+
+DeckBuilder.propTypes = {
+  onDeckComplete: PropTypes.func.isRequired,
+  onBack: PropTypes.func.isRequired,
+};
 
 export default DeckBuilder;

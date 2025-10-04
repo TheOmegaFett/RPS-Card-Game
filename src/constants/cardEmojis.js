@@ -1,4 +1,9 @@
-import { CardType } from '../models/Card.js';
+/**
+ * Card emoji representations and rarity limits
+ * Defines visual emojis for each card type and maximum counts per deck based on rarity
+ */
+
+import { CardType } from "../models/Card.js";
 
 export const CARD_EMOJIS = {
   [CardType.ROCK]: "🪨",
@@ -11,7 +16,7 @@ export const CARD_EMOJIS = {
   [CardType.BLOCK_DISCARD]: "🔒 🚫",
   [CardType.PAPER_ROCK]: "📄🪨",
   [CardType.ROCK_SCISSORS]: "🪨✂️",
-  [CardType.SCISSORS_PAPER]: "✂️📄"
+  [CardType.SCISSORS_PAPER]: "✂️📄",
 };
 
 export const CARD_LIMITS = {
@@ -25,5 +30,5 @@ export const CARD_LIMITS = {
   [CardType.ROCK_SCISSORS]: { max: 1, rarity: "Rare" },
   [CardType.SCISSORS_PAPER]: { max: 1, rarity: "Rare" },
   [CardType.BLOCK_DISCARD]: { max: 2, rarity: "Rare" },
-  [CardType.BLOCK_DRAW_TWO]: { max: 1, rarity: "Legendary" }
+  [CardType.BLOCK_DRAW_TWO]: { max: 1, rarity: "Legendary" },
 };

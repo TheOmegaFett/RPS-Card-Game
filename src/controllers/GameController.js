@@ -1,6 +1,6 @@
-import { Deck } from '../models/Deck.js';
-import { Player } from '../models/Player.js';
-import { CardType } from '../models/Card.js';
+import { Deck } from "../models/Deck.js";
+import { Player } from "../models/Player.js";
+import { CardType } from "../models/Card.js";
 
 export class GameController {
   constructor() {
@@ -11,6 +11,11 @@ export class GameController {
     this.roundsLost = 0;
   }
 
+  /**
+   * Initializes a new game with the provided player deck
+   * Creates AI deck, shuffles both decks, and draws initial hands
+   * @param {Deck} playerDeck - The deck chosen by the player
+   */
   setupGame(playerDeck) {
     const aiDeck = this._createAIDeck();
 
@@ -30,6 +35,11 @@ export class GameController {
     }
   }
 
+  /**
+   * Plays a single round with the selected player card against a random AI card
+   * @param {number} playerCardIndex - Index of the card in player's hand to play
+   * @returns {Object} Round result containing result string, playerCard, and aiCard
+   */
   playRound(playerCardIndex) {
     const playerCard = this.player.playCard(playerCardIndex);
     if (!playerCard) {
@@ -49,6 +59,13 @@ export class GameController {
     return { result, playerCard, aiCard };
   }
 
+  /**
+   * Determines the winner of a card matchup based on rock-paper-scissors rules
+   * @param {Card} playerCard - The card played by the player
+   * @param {Card} aiCard - The card played by the AI
+   * @returns {string} Result of the matchup ("Player Wins", "AI Wins", "Draw", or "Round Blocked - No Score")
+   * @private
+   */
   _determineWinner(playerCard, aiCard) {
     if (!playerCard || !aiCard) {
       return "Invalid round";
@@ -63,19 +80,21 @@ export class GameController {
       return "Round Blocked - No Score";
     }
 
-    const playerWins = playerCard.baseTypes.some(pType =>
-      aiCard.baseTypes.some(aType =>
-        (pType === CardType.ROCK && aType === CardType.SCISSORS) ||
-        (pType === CardType.SCISSORS && aType === CardType.PAPER) ||
-        (pType === CardType.PAPER && aType === CardType.ROCK)
+    const playerWins = playerCard.baseTypes.some((pType) =>
+      aiCard.baseTypes.some(
+        (aType) =>
+          (pType === CardType.ROCK && aType === CardType.SCISSORS) ||
+          (pType === CardType.SCISSORS && aType === CardType.PAPER) ||
+          (pType === CardType.PAPER && aType === CardType.ROCK)
       )
     );
 
-    const aiWins = aiCard.baseTypes.some(aType =>
-      playerCard.baseTypes.some(pType =>
-        (aType === CardType.ROCK && pType === CardType.SCISSORS) ||
-        (aType === CardType.SCISSORS && pType === CardType.PAPER) ||
-        (aType === CardType.PAPER && pType === CardType.ROCK)
+    const aiWins = aiCard.baseTypes.some((aType) =>
+      playerCard.baseTypes.some(
+        (pType) =>
+          (aType === CardType.ROCK && pType === CardType.SCISSORS) ||
+          (aType === CardType.SCISSORS && pType === CardType.PAPER) ||
+          (aType === CardType.PAPER && pType === CardType.ROCK)
       )
     );
 
@@ -92,9 +111,11 @@ export class GameController {
   }
 
   _handleCardEffects(playerCard, aiCard, result) {
-    if (playerCard.type === CardType.ROCK_DRAW ||
-        playerCard.type === CardType.PAPER_DRAW ||
-        playerCard.type === CardType.SCISSORS_DRAW) {
+    if (
+      playerCard.type === CardType.ROCK_DRAW ||
+      playerCard.type === CardType.PAPER_DRAW ||
+      playerCard.type === CardType.SCISSORS_DRAW
+    ) {
       this.player.drawCard();
     } else if (playerCard.type === CardType.BLOCK_DRAW_TWO) {
       this.player.drawCard();
@@ -106,30 +127,38 @@ export class GameController {
       }
     }
 
-    if (aiCard.type === CardType.ROCK_DRAW ||
-        aiCard.type === CardType.PAPER_DRAW ||
-        aiCard.type === CardType.SCISSORS_DRAW) {
+    if (
+      aiCard.type === CardType.ROCK_DRAW ||
+      aiCard.type === CardType.PAPER_DRAW ||
+      aiCard.type === CardType.SCISSORS_DRAW
+    ) {
       this.ai.drawCard();
     } else if (aiCard.type === CardType.BLOCK_DRAW_TWO) {
       this.ai.drawCard();
       this.ai.drawCard();
     } else if (aiCard.type === CardType.BLOCK_DISCARD) {
       if (this.player.hand.length > 0) {
-        const discardIndex = Math.floor(Math.random() * this.player.hand.length);
+        const discardIndex = Math.floor(
+          Math.random() * this.player.hand.length
+        );
         this.player.hand.splice(discardIndex, 1);
       }
     }
   }
 
+  /**
+   * Creates a valid AI deck with 20 cards respecting rarity limits
+   * @returns {Deck} A valid deck for the AI player
+   */
   _createAIDeck() {
     const aiDeck = new Deck();
     const cardTypes = Object.values(CardType);
-    
-    while (!aiDeck.isValid()) {
+
+    while (aiDeck.cards.length < 20) {
       const cardType = cardTypes[Math.floor(Math.random() * cardTypes.length)];
       aiDeck.addCard(cardType);
     }
-    
+
     return aiDeck;
   }
 }

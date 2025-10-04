@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { CARD_EMOJIS } from '../constants/cardEmojis.js';
 
 function MatchupDisplay({ playerCard, aiCard, result }) {
@@ -27,5 +28,11 @@ function MatchupDisplay({ playerCard, aiCard, result }) {
     </div>
   );
 }
+
+MatchupDisplay.propTypes = {
+  playerCard: PropTypes.object,
+  aiCard: PropTypes.object,
+  result: PropTypes.string.isRequired,
+};
 
 export default MatchupDisplay;

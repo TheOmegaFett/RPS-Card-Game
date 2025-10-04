@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
 import { GameController } from '../controllers/GameController.js';
 import PlayerHand from './PlayerHand.jsx';
 import ScoreBoard from './ScoreBoard.jsx';
@@ -13,6 +14,7 @@ function GameBoard({ playerDeck, onBackToMenu }) {
   const [result, setResult] = useState("");
   const [score, setScore] = useState({ player: 0, ai: 0 });
   const [showGameOver, setShowGameOver] = useState(false);
+  const timeoutRef = useRef(null);
 
   useEffect(() => {
     gameController.setupGame(playerDeck);
@@ -21,6 +23,14 @@ function GameBoard({ playerDeck, onBackToMenu }) {
       player: gameController.roundsWon,
       ai: gameController.roundsLost
     });
+
+    return () => {
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      const timeout = timeoutRef.current;
+      if (timeout) {
+        clearTimeout(timeout);
+      }
+    };
   }, [gameController, playerDeck]);
 
   const handleCardClick = (cardIndex) => {
@@ -78,7 +88,7 @@ function GameBoard({ playerDeck, onBackToMenu }) {
 
   return (
     <div className="game-board">
-      <button className="menu-btn back-btn" onClick={onBackToMenu}>
+      <button type="button" className="menu-btn back-btn" onClick={onBackToMenu}>
         Back to Menu
       </button>
       
@@ -93,5 +103,10 @@ function GameBoard({ playerDeck, onBackToMenu }) {
     </div>
   );
 }
+
+GameBoard.propTypes = {
+  playerDeck: PropTypes.object.isRequired,
+  onBackToMenu: PropTypes.func.isRequired,
+};
 
 export default GameBoard;
