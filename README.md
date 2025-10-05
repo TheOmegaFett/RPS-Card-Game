@@ -117,12 +117,17 @@ See [STYLE_GUIDE.md](STYLE_GUIDE.md) for complete coding standards and developer
 
 The core game logic has been extracted into a standalone NPM package for code reusability:
 
+🔗 **[View on NPM](https://www.npmjs.com/package/@theomegafett/rps-game-logic)**
+
+- **Package Name**: `@theomegafett/rps-game-logic`
+- **Version**: 1.0.0
 - **Package Location**: `packages/rps-game-logic/`
-- **Installation**: Linked locally via `file:./packages/rps-game-logic`
+- **Installation**: `npm install @theomegafett/rps-game-logic`
 - **Usage**: `import { Card, Deck, GameController } from '@theomegafett/rps-game-logic';`
 - **Documentation**: See [packages/rps-game-logic/README.md](packages/rps-game-logic/README.md)
 
 **Benefits:**
+- ✅ **Published on NPM** - Available to the entire developer community
 - ✅ Pure JavaScript, no React dependencies
 - ✅ Reusable in Node.js backend, CLI tools, or other frontends
 - ✅ Well-documented with JSDoc
