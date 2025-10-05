@@ -35,12 +35,12 @@
 [data-theme="dark"] {
   --bg-gradient-start: #1a1a2e;
   --bg-gradient-end: #16213e;
-  --text-primary: #e0e0e0;
-  --text-secondary: #b0b0b0;
-  --text-dark: #e0e0e0;
+  --text-primary: #ffffff;
+  --text-secondary: #e0e0e0;
+  --text-dark: #ffffff;
   
   --card-bg: #2d2d44;
-  --card-text: #e0e0e0;
+  --card-text: #ffffff;
   --card-shadow: rgba(0, 0, 0, 0.5);
   --card-hover-bg: #3d3d54;
   
@@ -48,13 +48,13 @@
   --overlay-shadow: rgba(0, 0, 0, 0.8);
   
   --button-bg: #4a4a6a;
-  --button-text: #a0aeff;
+  --button-text: #d0d8ff;
   --button-hover-bg: #5a5a7a;
   --button-shadow: rgba(0, 0, 0, 0.4);
   
-  --winner-bg: #2d5f2d;
+  --winner-bg: #3a7a3a;
   --winner-glow: rgba(72, 200, 72, 0.8);
-  --loser-bg: #5f2d2d;
+  --loser-bg: #7a3a3a;
   
   --header-bg: rgba(0, 0, 0, 0.4);
   --toggle-bg: rgba(255, 255, 255, 0.1);
