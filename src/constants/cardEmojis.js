@@ -3,7 +3,7 @@
  * Defines visual emojis for each card type and maximum counts per deck based on rarity
  */
 
-import { CardType } from "../models/Card.js";
+import { CardType } from '@omega/rps-game-logic';
 
 export const CARD_EMOJIS = {
   [CardType.ROCK]: "🪨",

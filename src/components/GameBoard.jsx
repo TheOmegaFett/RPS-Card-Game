@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { GameController } from '../controllers/GameController.js';
+import { GameController } from '@omega/rps-game-logic';
 import PlayerHand from './PlayerHand.jsx';
 import ScoreBoard from './ScoreBoard.jsx';
 import MatchupDisplay from './MatchupDisplay.jsx';

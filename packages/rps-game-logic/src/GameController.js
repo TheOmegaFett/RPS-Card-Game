@@ -1,10 +1,15 @@
-import { Deck, Player, CardType } from '@omega/rps-game-logic';
+import { Deck } from "./Deck.js";
+import { Player } from "./Player.js";
+import { CardType } from "./Card.js";
+import { INITIAL_HAND_SIZE } from "./constants.js";
 
+/**
+ * GameController class - manages game state and logic
+ */
 export class GameController {
   constructor() {
     this.player = null;
     this.ai = null;
-    this.currentMatch = 0;
     this.roundsWon = 0;
     this.roundsLost = 0;
   }
@@ -23,11 +28,10 @@ export class GameController {
     this.player = new Player("Player", playerDeck);
     this.ai = new Player("AI", aiDeck);
 
-    this.currentMatch = 0;
     this.roundsWon = 0;
     this.roundsLost = 0;
 
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < INITIAL_HAND_SIZE; i++) {
       this.player.drawCard();
       this.ai.drawCard();
     }
@@ -108,6 +112,13 @@ export class GameController {
     return "Draw";
   }
 
+  /**
+   * Handles card effects after a round is played
+   * @param {Card} playerCard - The card played by the player
+   * @param {Card} aiCard - The card played by the AI
+   * @param {string} result - The result of the round
+   * @private
+   */
   _handleCardEffects(playerCard, aiCard, result) {
     if (
       playerCard.type === CardType.ROCK_DRAW ||
@@ -136,9 +147,7 @@ export class GameController {
       this.ai.drawCard();
     } else if (aiCard.type === CardType.BLOCK_DISCARD) {
       if (this.player.hand.length > 0) {
-        const discardIndex = Math.floor(
-          Math.random() * this.player.hand.length
-        );
+        const discardIndex = Math.floor(Math.random() * this.player.hand.length);
         this.player.hand.splice(discardIndex, 1);
       }
     }
@@ -147,6 +156,7 @@ export class GameController {
   /**
    * Creates a valid AI deck with 20 cards respecting rarity limits
    * @returns {Deck} A valid deck for the AI player
+   * @private
    */
   _createAIDeck() {
     const aiDeck = new Deck();
@@ -159,4 +169,52 @@ export class GameController {
 
     return aiDeck;
   }
+}
+
+/**
+ * Standalone function to determine winner between two cards
+ * @param {Card} card1 - First card
+ * @param {Card} card2 - Second card
+ * @returns {string} "card1" | "card2" | "draw" | "blocked"
+ */
+export function getWinner(card1, card2) {
+  if (!card1 || !card2) {
+    return "draw";
+  }
+
+  if (
+    card1.type === CardType.BLOCK_DRAW_TWO ||
+    card1.type === CardType.BLOCK_DISCARD ||
+    card2.type === CardType.BLOCK_DRAW_TWO ||
+    card2.type === CardType.BLOCK_DISCARD
+  ) {
+    return "blocked";
+  }
+
+  const card1Wins = card1.baseTypes.some((type1) =>
+    card2.baseTypes.some(
+      (type2) =>
+        (type1 === CardType.ROCK && type2 === CardType.SCISSORS) ||
+        (type1 === CardType.SCISSORS && type2 === CardType.PAPER) ||
+        (type1 === CardType.PAPER && type2 === CardType.ROCK)
+    )
+  );
+
+  const card2Wins = card2.baseTypes.some((type2) =>
+    card1.baseTypes.some(
+      (type1) =>
+        (type2 === CardType.ROCK && type1 === CardType.SCISSORS) ||
+        (type2 === CardType.SCISSORS && type1 === CardType.PAPER) ||
+        (type2 === CardType.PAPER && type1 === CardType.ROCK)
+    )
+  );
+
+  if (card1Wins && card2Wins) {
+    return "draw";
+  } else if (card1Wins) {
+    return "card1";
+  } else if (card2Wins) {
+    return "card2";
+  }
+  return "draw";
 }

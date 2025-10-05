@@ -3,8 +3,7 @@ import StartScreen from './components/StartScreen.jsx';
 import GameBoard from './components/GameBoard.jsx';
 import DeckBuilder from './components/DeckBuilder.jsx';
 import Instructions from './components/Instructions.jsx';
-import { Deck, DECK_MIN } from './models/Deck.js';
-import { CardType } from './models/Card.js';
+import { Deck, DECK_MIN, CardType } from '@omega/rps-game-logic';
 import './styles/App.css';
 
 function App() {

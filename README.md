@@ -21,6 +21,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser
 - 📱 Responsive design for mobile and desktop
 - ♿ Accessibility features (keyboard navigation, ARIA labels)
 - 📖 In-game instructions and card reference
+- 📦 **Modular NPM Package** - Core game logic extracted as reusable package `@omega/rps-game-logic`
 
 ## How to Play
 
@@ -80,11 +81,22 @@ Click "Import Deck" from the main menu and select a `.txt` file following the fo
 
 ### Project Structure
 ```
+packages/
+└── rps-game-logic/   # NPM package - Core game logic
+    ├── src/
+    │   ├── Card.js           # Card class and CardType enum
+    │   ├── Deck.js           # Deck management
+    │   ├── Player.js         # Player class
+    │   ├── GameController.js # Game state and logic
+    │   ├── constants.js      # Game constants
+    │   └── index.js          # Package exports
+    ├── package.json
+    └── README.md
+
 src/
 ├── components/        # React components (UI)
-├── controllers/       # Game logic controllers
-├── models/           # Data models (Card, Deck, Player)
-├── constants/        # Shared constants and card definitions
+├── controllers/       # Legacy controllers (uses package)
+├── constants/        # UI constants (emojis, limits)
 ├── styles/           # CSS stylesheets
 │   ├── App.css       # Main application styles
 │   └── index.css     # Global styles and resets
@@ -100,6 +112,23 @@ src/
 - ✅ Accessibility compliant (WCAG 2.1)
 
 See [STYLE_GUIDE.md](STYLE_GUIDE.md) for complete coding standards and developer guidelines.
+
+### NPM Package - @omega/rps-game-logic
+
+The core game logic has been extracted into a standalone NPM package for code reusability:
+
+- **Package Location**: `packages/rps-game-logic/`
+- **Installation**: Linked locally via `file:./packages/rps-game-logic`
+- **Usage**: `import { Card, Deck, GameController } from '@omega/rps-game-logic';`
+- **Documentation**: See [packages/rps-game-logic/README.md](packages/rps-game-logic/README.md)
+
+**Benefits:**
+- ✅ Pure JavaScript, no React dependencies
+- ✅ Reusable in Node.js backend, CLI tools, or other frontends
+- ✅ Well-documented with JSDoc
+- ✅ Demonstrates modular architecture
+
+This showcases modern Node.js development practices and code reusability patterns.
 
 ## Browser Support
 

@@ -1,0 +1,37 @@
+{
+  "name": "@omega/rps-game-logic",
+  "version": "1.0.0",
+  "description": "Core game logic for Rock Paper Scissors card game with deck building mechanics",
+  "type": "module",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./card": "./src/Card.js",
+    "./deck": "./src/Deck.js",
+    "./player": "./src/Player.js",
+    "./game": "./src/GameController.js",
+    "./constants": "./src/constants.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "rock-paper-scissors",
+    "card-game",
+    "game-logic",
+    "rps",
+    "deck-builder"
+  ],
+  "author": "TheOmegaFett",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TheOmegaFett/RPS-Card-Game.git",
+    "directory": "packages/rps-game-logic"
+  },
+  "files": [
+    "src/**/*",
+    "README.md",
+    "LICENSE"
+  ]
+}
