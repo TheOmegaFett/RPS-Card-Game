@@ -51,18 +51,30 @@
 
 .difficulty-dropdown {
   padding: 0.5rem 1rem;
-  border-radius: 8px;
-  border: 2px solid var(--button-text);
-  background: var(--button-bg);
-  color: var(--button-text);
   font-size: 1rem;
-  font-weight: bold;
+  border: 2px solid #667eea;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #333333;
   cursor: pointer;
   transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+[data-theme="dark"] .difficulty-dropdown {
+  background: #2d2d44;
+  color: #ffffff;
+  border-color: #a0aeff;
 }
 
 .difficulty-dropdown:hover {
-  background: var(--button-hover-bg);
+  background: #f5f5f5;
+  border-color: #764ba2;
+}
+
+[data-theme="dark"] .difficulty-dropdown:hover {
+  background: #3d3d54;
+  border-color: #c0c8ff;
 }
 
 .start-screen {
