@@ -269,7 +269,7 @@ This project upholds full transparency and strict adherence to Australian ethics
 
 ## 📚 Documentation
 
-- **[Appendix](APPENDIX.md)** - Academic submission documentation (institution, learning outcomes, reflection)
+- **[Appendix](APPENDIX.md)** - Academic context, learning outcomes, and project reflection
 - **[Contributing Guide](CONTRIBUTING.md)** - How to contribute to this project
 - **[Code of Conduct](CODE_OF_CONDUCT.md)** - Community guidelines
 - **[Testing Guide](TESTING.md)** - Manual testing procedures and planned automated tests

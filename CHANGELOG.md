@@ -9,12 +9,38 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.0.1] - 2025-01-05
 
+### Added
+- 🧪 **Automated Testing**: Jest + React Testing Library with 47 passing tests
+  - Component tests: App, StartScreen
+  - Logic tests: Card (13), GameController (15), Deck (10)
+  - Test coverage for core game logic
+- 🚀 **CI/CD Pipeline**: GitHub Actions workflow
+  - Automated testing on push and PR
+  - Multi-version Node.js testing (18.x, 20.x)
+  - Production build verification
+  - ESLint checking
+- 📘 **Professional Documentation Suite**:
+  - CONTRIBUTING.md - Contribution guidelines
+  - CODE_OF_CONDUCT.md - Community standards
+  - TESTING.md - Testing strategy and procedures
+  - DEPLOYMENT.md - Multi-platform deployment guide
+  - APPENDIX.md - Academic context and project reflection
+- 📦 **NPM Package Published**: `@theomegafett/rps-game-logic` v1.0.1
+- 📛 **Badges**: Version, license, NPM, CI status, test count
+- 📸 **Demo Screenshot**: Added visual demo to README
+- 🔗 **Quick Links Navigation**: Easy access to all documentation
+
 ### Changed
 - Updated NPM package documentation with correct `@theomegafett` references
-- Improved README with NPM badges and installation instructions
+- Improved README with badges, author attribution, and quick links
+- Enhanced all .md files with summaries and professional formatting
+- Reorganized CSS into `src/styles/` folder for better organization
+- Updated project structure documentation
 
 ### Fixed
 - Corrected package name references in package README from `@omega` to `@theomegafett`
+- Fixed .gitignore merge conflicts
+- Removed unnecessary Render configuration files
 
 ## [1.0.0] - 2025-01-05
 

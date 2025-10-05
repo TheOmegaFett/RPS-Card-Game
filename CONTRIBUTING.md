@@ -74,17 +74,26 @@ npm run build  # Will show lint warnings
 
 ## 🧪 Testing
 
-Currently, the project uses manual testing. When contributing:
+The project uses both automated and manual testing. When contributing:
 
-1. **Test Your Changes**
+1. **Run Automated Tests**
+   ```bash
+   npm test
+   ```
+   All tests must pass before submitting PR.
+
+2. **Add Tests for New Features**
+   - Write unit tests for new logic
+   - Write component tests for new UI
+   - See [TESTING.md](TESTING.md) for examples
+
+3. **Manual Testing**
    - Test in Chrome, Firefox, and Safari
    - Check mobile responsiveness
    - Verify keyboard navigation works
    - Ensure no console errors
 
-2. **Future Testing Setup**
-   - We plan to add Jest/React Testing Library
-   - See [TESTING.md](TESTING.md) for testing strategy
+**Current Test Coverage**: 47 tests passing across components and game logic.
 
 ## 🔄 Git Workflow
 
@@ -141,12 +150,15 @@ chore: update dependencies
 
 - [ ] Code follows the style guide
 - [ ] All files have proper documentation (JSDoc, comments)
+- [ ] **All tests pass (`npm test`)**
+- [ ] **New features have tests**
 - [ ] No console errors or warnings
 - [ ] Tested in multiple browsers
 - [ ] Responsive design works on mobile
 - [ ] Keyboard navigation works
 - [ ] No accessibility regressions
 - [ ] Build succeeds (`npm run build`)
+- [ ] **CI/CD pipeline passes (GitHub Actions)**
 - [ ] Commit messages follow conventions
 
 ## 🐛 Reporting Bugs
