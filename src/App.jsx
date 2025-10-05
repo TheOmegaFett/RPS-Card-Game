@@ -205,8 +205,6 @@ function App() {
   return (
     <div className="App">
       <div className="app-header">
-        <DifficultySelect onDifficultyChange={handleDifficultyChange} />
-        <ThemeToggle />
         <button 
           type="button" 
           className="settings-btn"
