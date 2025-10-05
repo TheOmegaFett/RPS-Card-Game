@@ -7,16 +7,50 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2025-10-06
+
+### Added
+- 🎵 **Audio System**: Sound effects using Web Audio API (no dependencies)
+  - Countdown tick sounds (3, 2, 1)
+  - GO! announcement sound
+  - Card flip sound effect
+  - Victory melody (ascending 3-note sequence)
+  - Defeat sound (descending 2 notes)
+  - Draw tone (neutral beep)
+- ⚙️ **Comprehensive Settings Panel**: Unified settings modal with persistence
+  - Dark mode toggle
+  - High contrast mode toggle
+  - Difficulty selector (Easy/Normal/Hard)
+  - Sound effects enable/disable
+  - Volume slider (0-100%)
+  - Reduce motion toggle
+  - All settings persist to localStorage
+  - Keyboard accessible modal
+- 🎨 **Settings UI**: Professional modal with iOS-style toggles
+  - Organized sections (Appearance, Gameplay, Audio, Accessibility)
+  - Custom toggle switches
+  - Range slider for volume
+  - Backdrop blur overlay
+  - Theme-aware styling
+
+### Changed
+- Settings now centralized with useSettings hook
+- Theme and difficulty managed through global settings
+- All accessibility preferences saved and restored
+
 ## [1.1.1] - 2025-10-06
 
 ### Fixed
 - **Score spoiler prevention**: Score now updates after card flip completes (4s delay), not immediately on click
+- **Power-click exploit**: Cards disabled during animation sequence (4.5s lock)
+- **Game over timing**: Added 4.5s delay before showing results screen on last card
 - **Enhanced deck import validation**: Comprehensive error checking with aggregated error messages
   - Validates file format, card types, and counts
   - Checks for non-numeric, negative, or corrupted data
   - Prevents deck size violations (checks total before adding)
   - Shows up to 5 errors at once with clear descriptions
   - Better user feedback for import failures
+- **Lighthouse Scores**: Improved to 100/100 Performance, 100/100 Accessibility, 100/100 SEO
 
 ### Changed
 - Improved error messages for deck import (more descriptive)

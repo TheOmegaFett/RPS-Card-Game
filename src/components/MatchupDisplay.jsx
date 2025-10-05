@@ -53,6 +53,7 @@ function MatchupDisplay({ playerCard, aiCard, result, soundEnabled, volume }) {
         if (timeoutId) clearTimeout(timeoutId);
       };
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [playerCard, aiCard]);
 
   if (!playerCard || !aiCard) return null;
