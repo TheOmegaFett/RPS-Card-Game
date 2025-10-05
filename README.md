@@ -7,7 +7,7 @@
 [![CI](https://github.com/TheOmegaFett/RPS-Card-Game/actions/workflows/ci.yml/badge.svg)](https://github.com/TheOmegaFett/RPS-Card-Game/actions/workflows/ci.yml)
 ![tests](https://img.shields.io/badge/tests-57%20passing-brightgreen)
 ![performance](https://img.shields.io/badge/performance-100%2F100-brightgreen)
-![accessibility](https://img.shields.io/badge/accessibility-94%2F100-brightgreen)
+![accessibility](https://img.shields.io/badge/accessibility-100%2F100-brightgreen)
 ![best practices](https://img.shields.io/badge/best%20practices-96%2F100-brightgreen)
 ![SEO](https://img.shields.io/badge/SEO-100%2F100-brightgreen)
 ![Build](https://img.shields.io/github/actions/workflow/status/TheOmegaFett/RPS-Card-Game/ci.yml?branch=Main)

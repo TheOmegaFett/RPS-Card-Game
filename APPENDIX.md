@@ -171,7 +171,7 @@ This project demonstrates professional development practices with comprehensive 
 | **Live Demo** | Deployed on Render ✅ |
 | **Code Quality** | ESLint clean, PropTypes, JSDoc ✅ |
 | **Performance** | 100/100 Lighthouse Score 🏆 |
-| **Accessibility** | 94/100 Lighthouse Score ✅ |
+| **Accessibility** | 100/100 Lighthouse Score 🏆 |
 | **Best Practices** | 96/100 Lighthouse Score ✅ |
 | **SEO** | 100/100 Lighthouse Score 🏆 |
 
