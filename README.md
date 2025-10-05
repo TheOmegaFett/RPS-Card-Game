@@ -1,6 +1,6 @@
 # Rock Paper Scissors Card Game - React
 
-![version](https://img.shields.io/badge/version-1.1.1-blue)
+![version](https://img.shields.io/badge/version-1.2.0-blue)
 ![React](https://img.shields.io/badge/React-18.x-61dafb?logo=react)
 ![license](https://img.shields.io/badge/license-MIT-green)
 [![npm](https://img.shields.io/npm/v/@theomegafett/rps-game-logic)](https://www.npmjs.com/package/@theomegafett/rps-game-logic)
@@ -50,7 +50,9 @@ npm install @theomegafett/rps-game-logic
 - 🎴 Build custom 20-card decks with rarity limits
 - 🎮 Strategic gameplay with special card effects
 - 🤖 **Three AI difficulty modes** - Easy, Normal, and Hard with probabilistic card counting
-- 🌓 **Dark Mode** - Toggle between light and dark themes with localStorage persistence
+- ⚙️ **Comprehensive Settings Panel** - Control theme, sound, motion, contrast, and difficulty
+- 🎵 **Sound Effects** - Countdown, flip, and win/loss sounds with volume control
+- 🌓 **Dark Mode & High Contrast** - Multiple accessibility themes with localStorage
 - 🎴 **Animated Card Flip with Countdown** - Dramatic 3, 2, 1, GO! countdown before reveal
 - 📚 **Draw Pile Displays** - Visual card stacks showing remaining deck counts
 - 📥 Import/Export deck configurations (.txt files)
