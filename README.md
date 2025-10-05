@@ -6,7 +6,7 @@
 [![npm](https://img.shields.io/npm/v/@theomegafett/rps-game-logic)](https://www.npmjs.com/package/@theomegafett/rps-game-logic)
 [![CI](https://github.com/TheOmegaFett/RPS-Card-Game/actions/workflows/ci.yml/badge.svg)](https://github.com/TheOmegaFett/RPS-Card-Game/actions/workflows/ci.yml)
 ![tests](https://img.shields.io/badge/tests-57%20passing-brightgreen)
-![accessibility](https://img.shields.io/badge/accessibility-WCAG%202.1-green)
+![accessibility](https://img.shields.io/badge/accessibility-100%2F100-brightgreen)
 ![Build](https://img.shields.io/github/actions/workflow/status/TheOmegaFett/RPS-Card-Game/ci.yml?branch=Main)
 ![Last Commit](https://img.shields.io/github/last-commit/TheOmegaFett/RPS-Card-Game)
 ![Repo Size](https://img.shields.io/github/repo-size/TheOmegaFett/RPS-Card-Game)
@@ -52,7 +52,7 @@ npm install @theomegafett/rps-game-logic
 - 📚 **Draw Pile Displays** - Visual card stacks showing remaining deck counts
 - 📥 Import/Export deck configurations (.txt files)
 - 📱 Responsive design for mobile and desktop
-- ♿ Accessibility features (keyboard navigation, ARIA labels)
+- ♿ **Perfect Accessibility** - 100/100 Lighthouse score, WCAG 2.1 AA compliant ([audit](docs/lighthouse-accessibility.pdf))
 - 📖 In-game instructions and card reference
 - 📦 **Modular NPM Package** - Core game logic extracted as reusable package
 

@@ -204,4 +204,14 @@ For Coder Academy / AIT submissions:
 
 ---
 
-*Last Audited: [Add date after running Lighthouse]*
+## 🏆 Audit Results
+
+**Lighthouse Accessibility Score: 100/100** ✅
+
+- **Date:** October 6, 2025
+- **Report:** [lighthouse-accessibility.pdf](docs/lighthouse-accessibility.pdf)
+- **Result:** Perfect score - full WCAG 2.1 AA compliance
+
+---
+
+*Last Audited: October 6, 2025*

@@ -170,7 +170,7 @@ This project demonstrates professional development practices with comprehensive 
 | **NPM Package** | Published v1.0.1 ✅ |
 | **Live Demo** | Deployed on Render ✅ |
 | **Code Quality** | ESLint clean, PropTypes, JSDoc ✅ |
-| **Accessibility** | WCAG 2.1 compliant ✅ |
+| **Accessibility** | 100/100 Lighthouse Score ✅ |
 
 This project is:
 - ✅ **Academic Portfolio-Ready** - Comprehensive documentation and learning outcomes
