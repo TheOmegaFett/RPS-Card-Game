@@ -51,7 +51,7 @@ function GameBoard({ playerDeck, onBackToMenu, difficulty }) {
     if (playerOutOfCards || aiOutOfCards) {
       timeoutRef.current = setTimeout(() => {
         setShowGameOver(true);
-      }, 500);
+      }, 4500);
       return;
     }
 
