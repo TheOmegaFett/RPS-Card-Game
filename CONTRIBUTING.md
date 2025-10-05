@@ -1,5 +1,7 @@
 # Contributing to Rock Paper Scissors Card Game
 
+> **Quick Summary:** Learn how to set up the development environment, follow code style guidelines, and submit pull requests. This guide covers everything from forking the repo to publishing NPM package updates.
+
 Thank you for your interest in contributing! This document provides guidelines for contributing to this project.
 
 ## 🚀 Quick Start

@@ -1,5 +1,7 @@
 # Testing Guide
 
+> **Quick Summary:** Comprehensive testing checklist covering manual testing procedures (gameplay, UI/UX, accessibility, cross-browser), plus planned automated testing strategy with Jest and React Testing Library. Includes sample test code and coverage goals.
+
 ## Overview
 
 This document outlines the testing strategy for the Rock Paper Scissors Card Game project. While comprehensive automated tests are planned for future releases, current testing relies on manual testing procedures.

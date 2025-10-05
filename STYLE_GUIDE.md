@@ -1,5 +1,7 @@
 # Code Style Guide
 
+> **Quick Summary:** Coding standards for this project including naming conventions, component structure, React best practices, accessibility requirements, and performance optimization patterns. Follow these guidelines to maintain consistent, high-quality code.
+
 ## Code Style Guidelines
 
 ### General Principles

@@ -1,5 +1,15 @@
 # Rock Paper Scissors Card Game - React
 
+![version](https://img.shields.io/badge/version-1.0.1-blue)
+![license](https://img.shields.io/badge/license-MIT-green)
+[![npm](https://img.shields.io/npm/v/@theomegafett/rps-game-logic)](https://www.npmjs.com/package/@theomegafett/rps-game-logic)
+
+**Author:** Shane Miller (TheOmegaFett)
+
+🔗 **Quick Links:** [Contributing](CONTRIBUTING.md) | [Deployment](DEPLOYMENT.md) | [Testing](TESTING.md) | [Changelog](CHANGELOG.md) | [Code of Conduct](CODE_OF_CONDUCT.md)
+
+---
+
 A turn-based card game featuring Rock, Paper, Scissors mechanics with special card types, deck building, and strategic gameplay.
 
 ![Game Demo](docs/demo.png)

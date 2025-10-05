@@ -1,5 +1,7 @@
 # Deployment Guide
 
+> **Quick Summary:** Step-by-step instructions for deploying to Render, Netlify, Vercel, and GitHub Pages. Includes build optimization, server configuration, environment variables, and troubleshooting tips. Choose your preferred platform and get deployed in minutes!
+
 ## Overview
 
 This guide covers deploying the Rock Paper Scissors Card Game to various hosting platforms.
