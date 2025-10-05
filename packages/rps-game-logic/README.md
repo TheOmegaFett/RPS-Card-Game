@@ -1,4 +1,7 @@
-# @omega/rps-game-logic
+# @theomegafett/rps-game-logic
+
+[![npm version](https://badge.fury.io/js/@theomegafett%2Frps-game-logic.svg)](https://www.npmjs.com/package/@theomegafett/rps-game-logic)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Core game logic for Rock Paper Scissors card game with deck building mechanics.
 
@@ -12,14 +15,20 @@ Core game logic for Rock Paper Scissors card game with deck building mechanics.
 
 ## Installation
 
+### From NPM (Published Package)
+
 ```bash
-npm install @omega/rps-game-logic
+npm install @theomegafett/rps-game-logic
 ```
+
+### View on NPM
+
+🔗 **[npmjs.com/package/@theomegafett/rps-game-logic](https://www.npmjs.com/package/@theomegafett/rps-game-logic)**
 
 ## Quick Start
 
 ```javascript
-import { Card, Deck, GameController, CardType, getWinner } from '@omega/rps-game-logic';
+import { Card, Deck, GameController, CardType, getWinner } from '@theomegafett/rps-game-logic';
 
 // Create a deck
 const deck = new Deck();
@@ -104,7 +113,7 @@ game.ai                        // AI object
 Standalone function to determine winner between two cards:
 
 ```javascript
-import { getWinner, Card, CardType } from '@omega/rps-game-logic';
+import { getWinner, Card, CardType } from '@theomegafett/rps-game-logic';
 
 const rock = new Card(CardType.ROCK);
 const scissors = new Card(CardType.SCISSORS);
@@ -150,7 +159,7 @@ CARD_LIMITS         // Object with max counts and rarity for each card type
 ### Standalone Winner Determination
 
 ```javascript
-import { getWinner, Card, CardType } from '@omega/rps-game-logic';
+import { getWinner, Card, CardType } from '@theomegafett/rps-game-logic';
 
 const rock = new Card(CardType.ROCK);
 const paper = new Card(CardType.PAPER);
@@ -161,7 +170,7 @@ console.log(getWinner(rock, paper));  // "card2" (paper wins)
 ### Full Game Loop
 
 ```javascript
-import { Deck, GameController, CardType } from '@omega/rps-game-logic';
+import { Deck, GameController, CardType } from '@theomegafett/rps-game-logic';
 
 const deck = new Deck();
 // Build deck...
@@ -183,16 +192,16 @@ console.log(`Final Score: ${game.roundsWon} - ${game.roundsLost}`);
 
 ```javascript
 // Main export
-import * as RPS from '@omega/rps-game-logic';
+import * as RPS from '@theomegafett/rps-game-logic';
 
 // Named imports
-import { Card, Deck, Player, GameController } from '@omega/rps-game-logic';
+import { Card, Deck, Player, GameController } from '@theomegafett/rps-game-logic';
 
 // Specific module imports
-import { Card } from '@omega/rps-game-logic/card';
-import { Deck } from '@omega/rps-game-logic/deck';
-import { getWinner } from '@omega/rps-game-logic/game';
-import { CARD_LIMITS } from '@omega/rps-game-logic/constants';
+import { Card } from '@theomegafett/rps-game-logic/card';
+import { Deck } from '@theomegafett/rps-game-logic/deck';
+import { getWinner } from '@theomegafett/rps-game-logic/game';
+import { CARD_LIMITS } from '@theomegafett/rps-game-logic/constants';
 ```
 
 ## TypeScript Support
