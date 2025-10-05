@@ -152,18 +152,36 @@ location ~* \.html$ {
 
 ### Deployment Platforms
 
-**GitHub Pages:**
+#### Render (Recommended)
+This project includes a `render.yaml` configuration file for automatic deployment:
+
+1. **Push to GitHub**
+2. **Connect to Render:**
+   - Go to [Render Dashboard](https://dashboard.render.com/)
+   - Click "New +" → "Static Site"
+   - Connect your GitHub repository
+   - Render will automatically detect `render.yaml` and configure:
+     - Build command: `npm install && npm run build`
+     - Publish directory: `./build`
+     - Security headers (X-Content-Type-Options, CSP, etc.)
+     - Cache-Control headers for optimal performance
+     - UTF-8 charset headers
+     - SPA routing (rewrites all routes to index.html)
+
+The configuration file handles all performance and security headers automatically!
+
+#### GitHub Pages
 ```bash
 npm run build
 # Deploy the build folder
 ```
 
-**Netlify/Vercel:**
+#### Netlify/Vercel
 - Auto-deploys from Git
 - Headers configured via `netlify.toml` or Vercel settings
 - Automatic HTTPS and cache optimization
 
-**Note:** The warnings about CSP `eval` and missing headers only apply to development mode (`npm start`). Production builds handle these correctly.
+**Note:** The warnings about CSP `eval` and missing headers only apply to development mode (`npm start`). The `render.yaml` configuration file ensures production builds on Render have all required headers.
 
 ## AI Acknowledgment
 
