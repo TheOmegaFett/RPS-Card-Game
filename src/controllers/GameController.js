@@ -1,4 +1,4 @@
-import { Deck, Player, CardType } from '@omega/rps-game-logic';
+import { Deck, Player, CardType } from '@theomegafett/rps-game-logic';
 
 export class GameController {
   constructor() {

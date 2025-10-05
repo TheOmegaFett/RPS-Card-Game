@@ -21,7 +21,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser
 - 📱 Responsive design for mobile and desktop
 - ♿ Accessibility features (keyboard navigation, ARIA labels)
 - 📖 In-game instructions and card reference
-- 📦 **Modular NPM Package** - Core game logic extracted as reusable package `@omega/rps-game-logic`
+- 📦 **Modular NPM Package** - Core game logic extracted as reusable package `@theomegafett/rps-game-logic`
 
 ## How to Play
 
@@ -113,13 +113,13 @@ src/
 
 See [STYLE_GUIDE.md](STYLE_GUIDE.md) for complete coding standards and developer guidelines.
 
-### NPM Package - @omega/rps-game-logic
+### NPM Package - @theomegafett/rps-game-logic
 
 The core game logic has been extracted into a standalone NPM package for code reusability:
 
 - **Package Location**: `packages/rps-game-logic/`
 - **Installation**: Linked locally via `file:./packages/rps-game-logic`
-- **Usage**: `import { Card, Deck, GameController } from '@omega/rps-game-logic';`
+- **Usage**: `import { Card, Deck, GameController } from '@theomegafett/rps-game-logic';`
 - **Documentation**: See [packages/rps-game-logic/README.md](packages/rps-game-logic/README.md)
 
 **Benefits:**

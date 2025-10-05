@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { CARD_EMOJIS } from '../constants/cardEmojis.js';
-import { CardType } from '@omega/rps-game-logic';
+import { CardType } from '@theomegafett/rps-game-logic';
 
 function Instructions({ onBack }) {
   return (

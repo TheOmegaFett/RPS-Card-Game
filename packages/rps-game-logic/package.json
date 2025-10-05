@@ -1,5 +1,5 @@
 {
-  "name": "@omega/rps-game-logic",
+  "name": "@theomegafett/rps-game-logic",
   "version": "1.0.0",
   "description": "Core game logic for Rock Paper Scissors card game with deck building mechanics",
   "type": "module",
@@ -20,14 +20,20 @@
     "card-game",
     "game-logic",
     "rps",
-    "deck-builder"
+    "deck-builder",
+    "omega",
+    "theomegafett"
   ],
   "author": "TheOmegaFett",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/TheOmegaFett/RPS-Card-Game.git",
+    "url": "git+https://github.com/TheOmegaFett/RPS-Card-Game.git",
     "directory": "packages/rps-game-logic"
+  },
+  "homepage": "https://github.com/TheOmegaFett/RPS-Card-Game#readme",
+  "bugs": {
+    "url": "https://github.com/TheOmegaFett/RPS-Card-Game/issues"
   },
   "files": [
     "src/**/*",

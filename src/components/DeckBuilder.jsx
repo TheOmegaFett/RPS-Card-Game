@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useCallback } from "react";
 import PropTypes from 'prop-types';
-import { Deck, CardType } from '@omega/rps-game-logic';
+import { Deck, CardType } from '@theomegafett/rps-game-logic';
 import { CARD_EMOJIS, CARD_LIMITS } from "../constants/cardEmojis.js";
 
 const RARITY_ORDER = { Common: 0, Uncommon: 1, Rare: 2, Legendary: 3 };
