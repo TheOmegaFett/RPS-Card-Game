@@ -48,16 +48,14 @@ function GameBoard({ playerDeck, onBackToMenu, difficulty }) {
     const aiOutOfCards = gameController.ai.deck.length === 0 && gameController.ai.hand.length === 0;
 
     if (playerOutOfCards || aiOutOfCards) {
-      setTimeout(() => {
+      timeoutRef.current = setTimeout(() => {
         setShowGameOver(true);
       }, 500);
       return;
     }
 
-    if (gameController.currentMatch < 5) {
-      gameController.player.drawCard();
-      gameController.ai.drawCard();
-    }
+    gameController.player.drawCard();
+    gameController.ai.drawCard();
 
     setHand([...gameController.player.hand]);
   };

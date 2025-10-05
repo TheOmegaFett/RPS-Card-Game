@@ -4,7 +4,6 @@ export class GameController {
   constructor() {
     this.player = null;
     this.ai = null;
-    this.currentMatch = 0;
     this.roundsWon = 0;
     this.roundsLost = 0;
     this.oppRemainingCounts = null;
@@ -25,7 +24,6 @@ export class GameController {
     this.player = new Player("Player", playerDeck);
     this.ai = new Player("AI", aiDeck);
 
-    this.currentMatch = 0;
     this.roundsWon = 0;
     this.roundsLost = 0;
 
