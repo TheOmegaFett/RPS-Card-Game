@@ -10,7 +10,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.2.0] - 2025-10-06
 
 ### Added
-- 🧪 **Settings Tests**: 7 new tests for settings system (64 total passing)
+- 🧪 **Comprehensive Test Suite**: 31 tests covering components and logic
+  - Component tests: App, StartScreen, DeckBuilder, SettingsPanel, MatchupDisplay
+  - Logic tests: Player, Card, Deck, GameController, AI
+  - Settings tests: useSettings hook
+  - Code coverage: 25% (up from 11.9%)
 - 🎵 **Audio System**: Sound effects using Web Audio API (no dependencies)
   - Countdown tick sounds (3, 2, 1)
   - GO! announcement sound

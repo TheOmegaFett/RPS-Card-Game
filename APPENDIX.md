@@ -163,7 +163,8 @@ This project demonstrates professional development practices with comprehensive 
 
 | Metric | Status |
 |--------|--------|
-| **Tests** | 64 passing ✅ |
+| **Tests** | 31 passing ✅ |
+| **Coverage** | 25% (Statements) ✅ |
 | **CI/CD** | GitHub Actions ✅ |
 | **Build** | Passing ✅ |
 | **Documentation** | 8 comprehensive guides ✅ |
