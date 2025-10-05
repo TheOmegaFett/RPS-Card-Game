@@ -1,6 +1,6 @@
 {
   "name": "@theomegafett/rps-game-logic",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Core game logic for Rock Paper Scissors card game with deck building mechanics",
   "type": "module",
   "main": "./src/index.js",
