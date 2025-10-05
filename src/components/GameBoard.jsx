@@ -15,7 +15,9 @@ function GameBoard({ playerDeck, onBackToMenu, difficulty }) {
   const [result, setResult] = useState("");
   const [score, setScore] = useState({ player: 0, ai: 0 });
   const [showGameOver, setShowGameOver] = useState(false);
+  const [cardsClickable, setCardsClickable] = useState(true);
   const timeoutRef = useRef(null);
+  const clickableTimeoutRef = useRef(null);
 
   useEffect(() => {
     gameController.setupGame(playerDeck);
@@ -26,15 +28,20 @@ function GameBoard({ playerDeck, onBackToMenu, difficulty }) {
     });
 
     return () => {
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-      const timeout = timeoutRef.current;
-      if (timeout) {
-        clearTimeout(timeout);
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+      if (clickableTimeoutRef.current) {
+        clearTimeout(clickableTimeoutRef.current);
       }
     };
   }, [gameController, playerDeck]);
 
   const handleCardClick = (cardIndex) => {
+    if (!cardsClickable) return;
+
+    setCardsClickable(false);
+
     const roundResult = gameController.playRound(cardIndex, difficulty);
     
     setPlayerCard(roundResult.playerCard);
@@ -59,6 +66,10 @@ function GameBoard({ playerDeck, onBackToMenu, difficulty }) {
     gameController.ai.drawCard();
 
     setHand([...gameController.player.hand]);
+
+    clickableTimeoutRef.current = setTimeout(() => {
+      setCardsClickable(true);
+    }, 4500);
   };
 
   const handlePlayAgain = () => {
@@ -112,7 +123,7 @@ function GameBoard({ playerDeck, onBackToMenu, difficulty }) {
 
       <MatchupDisplay playerCard={playerCard} aiCard={aiCard} result={result} />
       
-      <PlayerHand hand={hand} onCardClick={handleCardClick} />
+      <PlayerHand hand={hand} onCardClick={handleCardClick} disabled={!cardsClickable} />
     </div>
   );
 }

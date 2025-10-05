@@ -216,6 +216,18 @@
   transform: translateY(-2px) scale(1.02);
 }
 
+.card-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.card-button:disabled:hover {
+  transform: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  border-color: #667eea;
+}
+
 .ai-section {
   margin-bottom: 1rem;
   padding: 1rem;

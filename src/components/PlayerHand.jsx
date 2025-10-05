@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import CardButton from './CardButton.jsx';
 
-function PlayerHand({ hand, onCardClick }) {
+function PlayerHand({ hand, onCardClick, disabled }) {
   return (
     <div className="player-hand">
       <h3>Your Hand:</h3>
@@ -12,6 +12,7 @@ function PlayerHand({ hand, onCardClick }) {
             key={index}
             card={card}
             onClick={() => onCardClick(index)}
+            disabled={disabled}
           />
         ))}
       </div>
@@ -22,6 +23,7 @@ function PlayerHand({ hand, onCardClick }) {
 PlayerHand.propTypes = {
   hand: PropTypes.array.isRequired,
   onCardClick: PropTypes.func.isRequired,
+  disabled: PropTypes.bool,
 };
 
 export default PlayerHand;
