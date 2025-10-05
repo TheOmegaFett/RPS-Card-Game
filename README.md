@@ -1,10 +1,11 @@
 # Rock Paper Scissors Card Game - React
 
 ![version](https://img.shields.io/badge/version-1.1.0-blue)
+![React](https://img.shields.io/badge/React-18.x-61dafb?logo=react)
 ![license](https://img.shields.io/badge/license-MIT-green)
 [![npm](https://img.shields.io/npm/v/@theomegafett/rps-game-logic)](https://www.npmjs.com/package/@theomegafett/rps-game-logic)
 [![CI](https://github.com/TheOmegaFett/RPS-Card-Game/actions/workflows/ci.yml/badge.svg)](https://github.com/TheOmegaFett/RPS-Card-Game/actions/workflows/ci.yml)
-![tests](https://img.shields.io/badge/tests-9%20passing-brightgreen)
+![tests](https://img.shields.io/badge/tests-57%20passing-brightgreen)
 ![Build](https://img.shields.io/github/actions/workflow/status/TheOmegaFett/RPS-Card-Game/ci.yml?branch=Main)
 ![Last Commit](https://img.shields.io/github/last-commit/TheOmegaFett/RPS-Card-Game)
 ![Repo Size](https://img.shields.io/github/repo-size/TheOmegaFett/RPS-Card-Game)
