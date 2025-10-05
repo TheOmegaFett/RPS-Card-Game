@@ -174,9 +174,37 @@ npm run build
 
 **Note:** The warnings about CSP `eval` and missing headers only apply to development mode (`npm start`). The `render.yaml` configuration file ensures production builds on Render have all required headers.
 
-## AI Acknowledgment
+## AI & Tooling Disclosure
 
-This project used AI code suggestions (Amp by Sourcegraph). All code was reviewed, tested, and licensed by the author. Significant AI-generated changes are marked with "Co-authored-by" in commit messages.
+### Use of AI-Assisted Development
+
+This project was developed with the assistance of AI-based coding tools, including **Amp** (by Sourcegraph) and **ChatGPT**, used for code completion, debugging, refactoring, and documentation generation. All AI-generated code was reviewed, tested, validated, and integrated manually by the author.
+
+### Purpose & Rationale
+
+The use of AI in this project was chosen specifically for:
+
+- **Rapid Development**: Accelerating the migration from Python to React within limited time availability
+- **Learning & Growth**: Exploring the evolving world of agentic-assisted development and modern development workflows
+- **Quality Focus**: Addressing bugs, performance optimization, and usability improvements efficiently
+- **Best Tool for the Job**: Using the most effective tools available to complete the task to a high standard
+
+I am an advocate for using the best tools available to achieve quality results. AI assistance was used as a **development accelerator and learning aid**, not as a replacement for understanding, decision-making, or craftsmanship.
+
+### Analogy
+
+I treat AI assistance as a **tool**, much like a graphics tablet for an artist or a calculator for an engineer — it enhances capability and efficiency, but the vision, judgment, and responsibility remain entirely with the creator.
+
+### Ethical Commitment
+
+This project upholds full transparency and strict adherence to Australian ethics standards and laws. The use of AI is disclosed openly:
+
+- ✅ All AI-assisted code has been reviewed and validated by the author
+- ✅ Significant AI-generated contributions are marked with "Co-authored-by" in commit messages
+- ✅ The project is original work, with AI used as a tool, not as a substitute for authorship
+- ✅ Compliant with academic integrity principles and professional development standards
+
+**No deception, no misrepresentation — just transparent, ethical use of modern development tools.**
 
 ## License
 
