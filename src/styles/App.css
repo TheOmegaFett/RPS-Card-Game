@@ -141,7 +141,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap: 3rem;
+  margin-top: 2rem;
 }
 
 .card-display {
@@ -750,23 +751,21 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  padding: 1rem;
+  gap: 1rem;
+  padding: 2rem;
   box-sizing: border-box;
   overflow: hidden;
 }
 
 .card-front .card-emoji {
-  font-size: 2.5rem;
+  font-size: 5rem;
   margin: 0;
-  line-height: 1;
-  max-width: 100%;
-  overflow: hidden;
-  text-overflow: clip;
+  line-height: 1.2;
+  white-space: nowrap;
 }
 
 .card-front .card-label {
-  font-size: 0.9rem;
+  font-size: 1.4rem;
   font-weight: bold;
   margin: 0;
 }
@@ -828,17 +827,38 @@
 }
 
 .matchup-flip-card .flip-card {
-  width: 200px;
-  height: 280px;
+  width: 300px !important;
+  height: 400px !important;
+}
+
+.matchup-flip-card .flip-card-inner {
+  width: 300px !important;
+  height: 400px !important;
+}
+
+.matchup-flip-card .flip-card-front,
+.matchup-flip-card .flip-card-back {
+  width: 300px !important;
+  height: 400px !important;
+  padding: 2rem;
+}
+
+.matchup-flip-card .card-front,
+.matchup-flip-card .card-back {
+  width: 100% !important;
+  height: 100% !important;
 }
 
 .matchup-flip-card .card-emoji {
-  font-size: 4rem !important;
+  font-size: 6rem !important;
   line-height: 1.2;
+  margin-bottom: 1rem !important;
+  white-space: nowrap;
 }
 
 .matchup-flip-card .card-label {
-  font-size: 1.2rem !important;
+  font-size: 1.6rem !important;
+  font-weight: bold;
 }
 
 .deck-piles-container {
