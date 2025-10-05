@@ -6,7 +6,7 @@
 
 **Author:** Shane Miller (TheOmegaFett)
 
-🔗 **Quick Links:** [Contributing](CONTRIBUTING.md) | [Deployment](DEPLOYMENT.md) | [Testing](TESTING.md) | [Changelog](CHANGELOG.md) | [Code of Conduct](CODE_OF_CONDUCT.md)
+🔗 **Quick Links:** [Appendix](APPENDIX.md) | [Contributing](CONTRIBUTING.md) | [Deployment](DEPLOYMENT.md) | [Testing](TESTING.md) | [Changelog](CHANGELOG.md)
 
 ---
 
@@ -265,6 +265,7 @@ This project upholds full transparency and strict adherence to Australian ethics
 
 ## 📚 Documentation
 
+- **[Appendix](APPENDIX.md)** - Academic submission documentation (institution, learning outcomes, reflection)
 - **[Contributing Guide](CONTRIBUTING.md)** - How to contribute to this project
 - **[Code of Conduct](CODE_OF_CONDUCT.md)** - Community guidelines
 - **[Testing Guide](TESTING.md)** - Manual testing procedures and planned automated tests
