@@ -9,7 +9,7 @@
 ![performance](https://img.shields.io/badge/performance-100%2F100-brightgreen)
 ![accessibility](https://img.shields.io/badge/accessibility-94%2F100-brightgreen)
 ![best practices](https://img.shields.io/badge/best%20practices-96%2F100-brightgreen)
-![SEO](https://img.shields.io/badge/SEO-91%2F100-green)
+![SEO](https://img.shields.io/badge/SEO-100%2F100-brightgreen)
 ![Build](https://img.shields.io/github/actions/workflow/status/TheOmegaFett/RPS-Card-Game/ci.yml?branch=Main)
 ![Last Commit](https://img.shields.io/github/last-commit/TheOmegaFett/RPS-Card-Game)
 ![Repo Size](https://img.shields.io/github/repo-size/TheOmegaFett/RPS-Card-Game)
