@@ -46,7 +46,8 @@ npm install @theomegafett/rps-game-logic
 - 🎮 Strategic gameplay with special card effects
 - 🤖 **Three AI difficulty modes** - Easy, Normal, and Hard with probabilistic card counting
 - 🌓 **Dark Mode** - Toggle between light and dark themes with localStorage persistence
-- 🎴 **Card Flip Animations** - Smooth 3D card flip effects
+- 🎴 **Animated Card Flip with Countdown** - Dramatic 3, 2, 1, GO! countdown before reveal
+- 📚 **Draw Pile Displays** - Visual card stacks showing remaining deck counts
 - 📥 Import/Export deck configurations (.txt files)
 - 📱 Responsive design for mobile and desktop
 - ♿ Accessibility features (keyboard navigation, ARIA labels)
@@ -55,10 +56,13 @@ npm install @theomegafett/rps-game-logic
 
 ## How to Play
 
-1. **Start a Game**: Choose from default deck, build custom deck, or import a deck
-2. **Gameplay**: Each player starts with 3 cards. Play continues until one player runs out of cards
-3. **Win Condition**: The player with the most turn victories wins the game
-4. **Card Rules**: Rock beats Scissors, Scissors beats Paper, Paper beats Rock
+1. **Choose Difficulty**: Select Easy, Normal, or Hard mode
+2. **Toggle Theme**: Switch between light and dark mode
+3. **Start a Game**: Choose from default deck, build custom deck, or import a deck
+4. **Gameplay**: Each player starts with 3 cards. Select a card to play
+5. **Card Reveal**: Watch the countdown (3, 2, 1, GO!) as cards flip over
+6. **Win Condition**: The player with the most turn victories wins when someone runs out of cards
+7. **Card Rules**: Rock beats Scissors, Scissors beats Paper, Paper beats Rock
 
 ## Card Types
 

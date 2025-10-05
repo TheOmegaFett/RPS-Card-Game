@@ -19,30 +19,66 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Smooth transitions between themes
   - Remembers preference across sessions
   - Updates browser theme-color meta tag
-- 🎴 **Card Flip Animation**: Smooth 3D card flip effects
-  - GPU-accelerated CSS transforms
-  - Reusable FlipCard component
-  - Keyboard accessible
-- 🎯 **AI Logic Package**: Added `ai.js` module to NPM package
+- 🎴 **Card Flip Animation with Countdown**: Dramatic card reveal sequence
+  - Cards appear face-down when selected
+  - Countdown animation: 3... 2... 1... GO!
+  - 1 second pause after "GO!" to build suspense
+  - Cards flip over simultaneously with 3D rotation
+  - Winner highlighted with green glow effect
+  - GPU-accelerated CSS transforms for smooth 60fps animation
+  - Reusable FlipCard component with keyboard accessibility
+- 📚 **Deck Pile Display**: Visual draw deck indicators
+  - Face-down card stacks for both player and AI
+  - Layered 3-card stack effect for depth
+  - Real-time card count updates
+  - Shows "Empty" when deck depleted
+- 📱 **Full Mobile Responsiveness**: Optimized for all screen sizes
+  - iPhone SE (375px) support with scaled cards (160x220px)
+  - Tablet support (768px) with medium cards (200x280px)
+  - Desktop support with large cards (300x400px)
+  - Vertical stacking on narrow screens
+  - Touch-optimized button sizes
+- 🎯 **AI Logic Package**: Added `ai.js` module to NPM package v1.1.0
   - `chooseCard()` - Select best card based on difficulty and card counting
   - `updateCounts()` - Track opponent play history
   - `initializeCounts()` - Initialize deck tracking
   - Bayesian probability model with Dirichlet smoothing
-- 🧪 **AI Tests**: 10 new tests for AI decision-making logic
-- 📘 **Feature Documentation**: docs/NEW_FEATURES.md with usage guide
+- 🧪 **Comprehensive Testing**: 57 automated tests
+  - Component tests: App, StartScreen
+  - Logic tests: Card (13), GameController (15), Deck (10), AI (10)
+  - CI/CD pipeline with GitHub Actions
+- 📘 **Professional Documentation Suite**:
+  - CONTRIBUTING.md, CODE_OF_CONDUCT.md, TESTING.md
+  - DEPLOYMENT.md, APPENDIX.md, STYLE_GUIDE.md
+  - docs/NEW_FEATURES.md with usage guide
 
 ### Changed
 - NPM package version bumped to 1.1.0 (minor feature release)
-- GameController now uses AI difficulty system
-- GameBoard accepts difficulty prop
-- App integrates theme and difficulty selectors
+- GameController now uses AI difficulty system with card counting
+- GameBoard reorganized layout (Score → AI Hand → Decks → Matchup → Player Hand)
+- MatchupDisplay completely redesigned with flip animation
+- App integrates theme and difficulty selectors in header
 - Package exports now include `/ai` module
+- All documentation updated with badges and quick links
+
+### Fixed
+- **Critical**: Removed `currentMatch < 5` limit causing hands to stop refilling after 5 rounds
+- Card emoji overflow on flip cards (now properly contained and wrapped)
+- Previous round results flashing before new countdown
+- "GO!" appearing twice in countdown sequence
+- Countdown timing improved (safe hot-swapping)
+- Layout improvements for better visual hierarchy
+- Mobile responsiveness for small screens
+- Timeout cleanup to prevent memory leaks
 
 ### Technical Improvements
 - Hot-swappable difficulty (safe to change mid-game)
 - Pure functional AI (no side effects, deterministic)
 - Card counting tracks remaining deck composition
 - Play history influences Hard mode predictions
+- Proper cleanup in useEffect hooks
+- Flexbox-based emoji wrapping for multi-emoji cards
+- CSS variables for consistent theming
 
 ## [1.0.1] - 2025-01-05
 
