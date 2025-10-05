@@ -6,6 +6,7 @@
 [![npm](https://img.shields.io/npm/v/@theomegafett/rps-game-logic)](https://www.npmjs.com/package/@theomegafett/rps-game-logic)
 [![CI](https://github.com/TheOmegaFett/RPS-Card-Game/actions/workflows/ci.yml/badge.svg)](https://github.com/TheOmegaFett/RPS-Card-Game/actions/workflows/ci.yml)
 ![tests](https://img.shields.io/badge/tests-64%20passing-brightgreen)
+![coverage](https://img.shields.io/badge/coverage-11.3%25-yellow)
 ![performance](https://img.shields.io/badge/performance-100%2F100-brightgreen)
 ![accessibility](https://img.shields.io/badge/accessibility-100%2F100-brightgreen)
 ![best practices](https://img.shields.io/badge/best%20practices-96%2F100-brightgreen)

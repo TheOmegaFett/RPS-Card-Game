@@ -38,6 +38,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Settings now centralized with useSettings hook
 - Theme and difficulty managed through global settings
 - All accessibility preferences saved and restored
+- Header simplified to settings button only (all controls in settings panel)
+- Removed unused components from header (ThemeToggle, DifficultySelect)
+
+### Technical
+- Code coverage tracking enabled (11.3% baseline)
+- Enhanced error handling in settings localStorage
+- Data attributes for accessibility modes (data-reduced-motion, data-high-contrast)
 
 ## [1.1.1] - 2025-10-06
 
