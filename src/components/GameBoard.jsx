@@ -87,9 +87,17 @@ function GameBoard({ playerDeck, onBackToMenu, difficulty }) {
 
   return (
     <div className="game-board">
-      <button type="button" className="menu-btn back-btn" onClick={onBackToMenu}>
-        Back to Menu
-      </button>
+      <div className="game-header">
+        <button type="button" className="menu-btn back-btn" onClick={onBackToMenu}>
+          Back to Menu
+        </button>
+      </div>
+
+      <ScoreBoard playerScore={score.player} aiScore={score.ai} />
+      
+      <div className="ai-section">
+        <h3>AI Hand: {gameController.ai?.hand.length || 0} cards</h3>
+      </div>
       
       <div className="deck-piles-container">
         <DeckPile 
@@ -101,12 +109,7 @@ function GameBoard({ playerDeck, onBackToMenu, difficulty }) {
           label="Your Deck"
         />
       </div>
-      
-      <div className="ai-section">
-        <h3>AI Hand: {gameController.ai?.hand.length || 0} cards</h3>
-      </div>
-      
-      <ScoreBoard playerScore={score.player} aiScore={score.ai} />
+
       <MatchupDisplay playerCard={playerCard} aiCard={aiCard} result={result} />
       
       <PlayerHand hand={hand} onCardClick={handleCardClick} />
