@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.1.0] - 2025-01-05
+## [1.1.0] - 2025-10-06
 
 ### Added
 - 🧠 **AI Difficulty Modes**: Three difficulty levels with smart gameplay
@@ -80,7 +80,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Flexbox-based emoji wrapping for multi-emoji cards
 - CSS variables for consistent theming
 
-## [1.0.1] - 2025-01-05
+## [1.0.1] - 2025-10-06
 
 ### Added
 - 🧪 **Automated Testing**: Jest + React Testing Library with 47 passing tests
@@ -115,7 +115,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed .gitignore merge conflicts
 - Removed unnecessary Render configuration files
 
-## [1.0.0] - 2025-01-05
+## [1.0.0] - 2025-10-05
 
 ### Added
 - 🎉 **Initial Release**
