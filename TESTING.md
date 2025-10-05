@@ -1,6 +1,27 @@
 # Testing Guide
 
-> **Quick Summary:** Comprehensive testing checklist covering manual testing procedures (gameplay, UI/UX, accessibility, cross-browser), plus planned automated testing strategy with Jest and React Testing Library. Includes sample test code and coverage goals.
+> **Quick Summary:** Comprehensive testing checklist covering manual testing procedures (gameplay, UI/UX, accessibility, cross-browser), plus automated testing strategy with Jest and React Testing Library. Includes sample test code and coverage goals.
+
+## 🎯 Testing Philosophy: Surgical Precision
+
+**Our Approach:** Rather than aiming for 100% coverage with hundreds of tests, we use **surgical testing** - strategically targeting high-impact areas for maximum coverage with minimal tests.
+
+### Why Surgical Testing?
+
+- ✅ **Efficiency**: 53 tests achieving 33% coverage (vs 200+ for 100%)
+- ✅ **Maintainability**: Easier to keep tests in sync with code changes  
+- ✅ **Focus**: Tests critical paths, edge cases, and user flows
+- ✅ **Quality over Quantity**: Each test serves a clear purpose
+
+### Target Areas (Priority Order)
+
+1. **Round Resolver Logic** - All win/loss/draw/block scenarios
+2. **UI State Toggles** - Theme, sound, difficulty hot-swapping
+3. **Integration Flows** - Full game rounds, navigation paths
+4. **Edge Cases** - Corrupted data, invalid states, rapid actions
+5. **Accessibility** - ARIA labels, keyboard navigation, focus management
+
+This approach gives us **confidence in critical functionality** without the overhead of exhaustive unit testing.
 
 ## Overview
 
