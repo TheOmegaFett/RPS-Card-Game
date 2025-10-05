@@ -12,6 +12,17 @@ npm start
 
 Open [http://localhost:3000](http://localhost:3000) in your browser
 
+## 🧩 Node.js Theme Expansion
+
+This project extends beyond a single app — the core logic has been published as a standalone **NPM package**:  
+[`@theomegafett/rps-game-logic`](https://www.npmjs.com/package/@theomegafett/rps-game-logic)
+
+```bash
+npm install @theomegafett/rps-game-logic
+```
+
+**Why?** Demonstrates modular Node.js development, code reusability, and package publishing best practices.
+
 ## Features
 
 - 🎴 Build custom 20-card decks with rarity limits
@@ -21,7 +32,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser
 - 📱 Responsive design for mobile and desktop
 - ♿ Accessibility features (keyboard navigation, ARIA labels)
 - 📖 In-game instructions and card reference
-- 📦 **Modular NPM Package** - Core game logic extracted as reusable package `@theomegafett/rps-game-logic`
+- 📦 **Modular NPM Package** - Core game logic extracted as reusable package
 
 ## How to Play
 
