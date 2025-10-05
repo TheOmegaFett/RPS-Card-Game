@@ -1136,7 +1136,8 @@
   color: #667eea;
 }
 
-@media (prefers-reduced-motion: reduce) {
+@media (prefers-reduced-motion: reduce),
+[data-reduced-motion="true"] {
   *,
   *::before,
   *::after {
@@ -1156,6 +1157,30 @@
   .card-button:hover {
     transform: none;
   }
+}
+
+[data-high-contrast="true"] {
+  --bg-gradient-start: #000000;
+  --bg-gradient-end: #000000;
+  --text-primary: #ffffff;
+  --card-bg: #000000;
+  --card-text: #ffff00;
+  --button-bg: #ffffff;
+  --button-text: #000000;
+  --button-hover-bg: #f0f0f0;
+  --winner-bg: #00ff00;
+  --loser-bg: #ff0000;
+}
+
+[data-high-contrast="true"] .card-front {
+  border: 4px solid #ffffff !important;
+  background: #000000 !important;
+  color: #ffff00 !important;
+}
+
+[data-high-contrast="true"] .menu-btn,
+[data-high-contrast="true"] .settings-btn {
+  border: 4px solid #000000 !important;
 }
 
 .matchup-flip-card .flip-card {
