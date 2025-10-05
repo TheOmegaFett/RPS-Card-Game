@@ -5,7 +5,7 @@
 ![license](https://img.shields.io/badge/license-MIT-green)
 [![npm](https://img.shields.io/npm/v/@theomegafett/rps-game-logic)](https://www.npmjs.com/package/@theomegafett/rps-game-logic)
 [![CI](https://github.com/TheOmegaFett/RPS-Card-Game/actions/workflows/ci.yml/badge.svg)](https://github.com/TheOmegaFett/RPS-Card-Game/actions/workflows/ci.yml)
-![tests](https://img.shields.io/badge/tests-39%20passing-brightgreen)
+![tests](https://img.shields.io/badge/tests-41%20passing-brightgreen)
 ![coverage](https://img.shields.io/badge/coverage-34%25-yellow)
 ![performance](https://img.shields.io/badge/performance-100%2F100-brightgreen)
 ![accessibility](https://img.shields.io/badge/accessibility-100%2F100-brightgreen)

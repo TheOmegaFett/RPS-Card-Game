@@ -1,6 +1,17 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import App from '../App';
 
+jest.mock('../hooks/useAudio.js', () => ({
+  useAudio: () => ({
+    playCountdown: jest.fn(),
+    playGo: jest.fn(),
+    playCardFlip: jest.fn(),
+    playWin: jest.fn(),
+    playLoss: jest.fn(),
+    playDraw: jest.fn(),
+  }),
+}));
+
 describe('Game Logic Edge Cases', () => {
   beforeEach(() => {
     localStorage.clear();
