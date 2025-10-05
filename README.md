@@ -108,6 +108,63 @@ See [STYLE_GUIDE.md](STYLE_GUIDE.md) for complete coding standards and developer
 - Safari (latest)
 - Edge (latest)
 
+## Deployment & Production
+
+### Building for Production
+```bash
+npm run build
+```
+This creates an optimized production build in the `build/` folder with:
+- Minified and bundled JavaScript
+- Cache-busting filenames
+- Optimized CSS
+
+### Server Configuration (Recommended)
+
+For optimal performance and security, configure your web server with:
+
+#### Headers
+```nginx
+# Content-Type with UTF-8
+add_header Content-Type "text/html; charset=utf-8";
+
+# Security headers
+add_header X-Content-Type-Options "nosniff" always;
+add_header X-Frame-Options "DENY" always;
+add_header X-XSS-Protection "1; mode=block" always;
+
+# Content Security Policy (production)
+add_header Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline';" always;
+```
+
+#### Caching
+```nginx
+# Static assets (with hash in filename)
+location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2)$ {
+    add_header Cache-Control "public, max-age=31536000, immutable";
+}
+
+# HTML files
+location ~* \.html$ {
+    add_header Cache-Control "public, max-age=0, must-revalidate";
+}
+```
+
+### Deployment Platforms
+
+**GitHub Pages:**
+```bash
+npm run build
+# Deploy the build folder
+```
+
+**Netlify/Vercel:**
+- Auto-deploys from Git
+- Headers configured via `netlify.toml` or Vercel settings
+- Automatic HTTPS and cache optimization
+
+**Note:** The warnings about CSP `eval` and missing headers only apply to development mode (`npm start`). Production builds handle these correctly.
+
 ## AI Acknowledgment
 
 This project used AI code suggestions (Amp by Sourcegraph). All code was reviewed, tested, and licensed by the author. Significant AI-generated changes are marked with "Co-authored-by" in commit messages.
