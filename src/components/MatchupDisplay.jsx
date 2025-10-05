@@ -6,10 +6,14 @@ import FlipCard from './FlipCard.jsx';
 function MatchupDisplay({ playerCard, aiCard, result }) {
   const [countdown, setCountdown] = useState(null);
   const [showCards, setShowCards] = useState(false);
+  const [displayedPlayerCard, setDisplayedPlayerCard] = useState(null);
+  const [displayedAiCard, setDisplayedAiCard] = useState(null);
 
   useEffect(() => {
     if (playerCard && aiCard) {
       setShowCards(false);
+      setDisplayedPlayerCard(null);
+      setDisplayedAiCard(null);
       setCountdown(3);
 
       let timeoutId;
@@ -21,6 +25,8 @@ function MatchupDisplay({ playerCard, aiCard, result }) {
             clearInterval(countdownInterval);
             setCountdown("GO!");
             timeoutId = setTimeout(() => {
+              setDisplayedPlayerCard(playerCard);
+              setDisplayedAiCard(aiCard);
               setShowCards(true);
               setCountdown(null);
             }, 1000);
@@ -51,19 +57,19 @@ function MatchupDisplay({ playerCard, aiCard, result }) {
     </div>
   );
 
-  const playerCardFront = (
+  const playerCardFront = displayedPlayerCard ? (
     <div className={`card-front ${getCardClass(true)}`}>
-      <div className="card-emoji">{CARD_EMOJIS[playerCard.type]}</div>
+      <div className="card-emoji">{CARD_EMOJIS[displayedPlayerCard.type]}</div>
       <div className="card-label">Player</div>
     </div>
-  );
+  ) : cardBack;
 
-  const aiCardFront = (
+  const aiCardFront = displayedAiCard ? (
     <div className={`card-front ${getCardClass(false)}`}>
-      <div className="card-emoji">{CARD_EMOJIS[aiCard.type]}</div>
+      <div className="card-emoji">{CARD_EMOJIS[displayedAiCard.type]}</div>
       <div className="card-label">AI</div>
     </div>
-  );
+  ) : cardBack;
 
   return (
     <div className="matchup-display">
