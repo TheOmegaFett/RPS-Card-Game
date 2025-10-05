@@ -251,6 +251,15 @@ This project upholds full transparency and strict adherence to Australian ethics
 
 **No deception, no misrepresentation — just transparent, ethical use of modern development tools.**
 
+## 📚 Documentation
+
+- **[Contributing Guide](CONTRIBUTING.md)** - How to contribute to this project
+- **[Code of Conduct](CODE_OF_CONDUCT.md)** - Community guidelines
+- **[Testing Guide](TESTING.md)** - Manual testing procedures and planned automated tests
+- **[Deployment Guide](DEPLOYMENT.md)** - Deploy to Render, Netlify, Vercel, or GitHub Pages
+- **[Changelog](CHANGELOG.md)** - Version history and release notes
+- **[Style Guide](STYLE_GUIDE.md)** - Coding standards and best practices
+
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
