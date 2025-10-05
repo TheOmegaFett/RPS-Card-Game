@@ -12,24 +12,28 @@ function MatchupDisplay({ playerCard, aiCard, result }) {
       setShowCards(false);
       setCountdown(3);
 
+      let timeoutId;
       const countdownInterval = setInterval(() => {
         setCountdown((prev) => {
+          if (prev === null) return null;
+          
           if (prev === 1) {
             clearInterval(countdownInterval);
-            setTimeout(() => {
-              setCountdown("GO!");
-              setTimeout(() => {
-                setShowCards(true);
-                setCountdown(null);
-              }, 1000);
-            }, 300);
+            setCountdown("GO!");
+            timeoutId = setTimeout(() => {
+              setShowCards(true);
+              setCountdown(null);
+            }, 1000);
             return null;
           }
           return prev - 1;
         });
       }, 600);
 
-      return () => clearInterval(countdownInterval);
+      return () => {
+        clearInterval(countdownInterval);
+        if (timeoutId) clearTimeout(timeoutId);
+      };
     }
   }, [playerCard, aiCard]);
 

@@ -827,6 +827,20 @@
   margin: 0;
 }
 
+.matchup-flip-card .flip-card {
+  width: 200px;
+  height: 280px;
+}
+
+.matchup-flip-card .card-emoji {
+  font-size: 4rem !important;
+  line-height: 1.2;
+}
+
+.matchup-flip-card .card-label {
+  font-size: 1.2rem !important;
+}
+
 .deck-piles-container {
   display: flex;
   justify-content: space-between;
