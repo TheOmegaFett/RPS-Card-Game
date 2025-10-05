@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { CARD_EMOJIS } from '../constants/cardEmojis.js';
 import FlipCard from './FlipCard.jsx';
+import { useAudio } from '../hooks/useAudio.js';
 
-function MatchupDisplay({ playerCard, aiCard, result }) {
+function MatchupDisplay({ playerCard, aiCard, result, soundEnabled, volume }) {
+  const { playCountdown, playGo, playCardFlip, playWin, playLoss, playDraw } = useAudio(soundEnabled, volume);
   const [countdown, setCountdown] = useState(null);
   const [showCards, setShowCards] = useState(false);
   const [displayedPlayerCard, setDisplayedPlayerCard] = useState(null);
@@ -23,15 +25,25 @@ function MatchupDisplay({ playerCard, aiCard, result }) {
           
           if (prev === 1) {
             clearInterval(countdownInterval);
+            playCountdown();
             setCountdown("GO!");
+            setTimeout(() => playGo(), 100);
             timeoutId = setTimeout(() => {
               setDisplayedPlayerCard(playerCard);
               setDisplayedAiCard(aiCard);
+              playCardFlip();
               setShowCards(true);
               setCountdown(null);
+              
+              setTimeout(() => {
+                if (result.includes("Player Wins")) playWin();
+                else if (result.includes("AI Wins")) playLoss();
+                else playDraw();
+              }, 700);
             }, 1000);
             return null;
           }
+          playCountdown();
           return prev - 1;
         });
       }, 600);
@@ -102,6 +114,8 @@ MatchupDisplay.propTypes = {
   playerCard: PropTypes.object,
   aiCard: PropTypes.object,
   result: PropTypes.string.isRequired,
+  soundEnabled: PropTypes.bool,
+  volume: PropTypes.number,
 };
 
 export default MatchupDisplay;
