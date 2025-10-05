@@ -153,22 +153,21 @@ location ~* \.html$ {
 ### Deployment Platforms
 
 #### Render (Recommended)
-This project includes a `render.yaml` configuration file for automatic deployment:
+This project includes a `render.yaml` configuration file for deployment:
 
 1. **Push to GitHub**
 2. **Connect to Render:**
    - Go to [Render Dashboard](https://dashboard.render.com/)
    - Click "New +" → "Static Site"
    - Connect your GitHub repository
-   - Render will automatically detect `render.yaml` and configure:
-     - Build command: `npm install && npm run build`
-     - Publish directory: `./build`
-     - Security headers (X-Content-Type-Options, CSP, etc.)
-     - Cache-Control headers for optimal performance
-     - UTF-8 charset headers
-     - SPA routing (rewrites all routes to index.html)
+   - Render will detect `render.yaml` for basic configuration
 
-The configuration file handles all performance and security headers automatically!
+3. **Configure Headers (Important):**
+   - If warnings persist, you may need to configure headers manually in Render Dashboard
+   - See **[RENDER_SETUP.md](RENDER_SETUP.md)** for detailed header configuration instructions
+   - This includes security headers, cache-control settings, and CSP configuration
+
+The `render.yaml` file configures the build, but headers may need manual setup in the dashboard.
 
 #### GitHub Pages
 ```bash

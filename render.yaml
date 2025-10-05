@@ -4,8 +4,11 @@ services:
     env: static
     buildCommand: npm install && npm run build
     staticPublishPath: ./build
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
     headers:
-      # Security Headers
       - path: /*
         name: X-Content-Type-Options
         value: nosniff
@@ -18,8 +21,6 @@ services:
       - path: /*
         name: Content-Security-Policy
         value: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:;
-      
-      # Caching for static assets with hash in filename
       - path: /static/js/*
         name: Cache-Control
         value: public, max-age=31536000, immutable
@@ -29,24 +30,6 @@ services:
       - path: /static/media/*
         name: Cache-Control
         value: public, max-age=31536000, immutable
-      
-      # No cache for HTML files
-      - path: /*.html
-        name: Cache-Control
-        value: public, max-age=0, must-revalidate
       - path: /
         name: Cache-Control
         value: public, max-age=0, must-revalidate
-      
-      # UTF-8 charset for HTML
-      - path: /*.html
-        name: Content-Type
-        value: text/html; charset=utf-8
-      - path: /
-        name: Content-Type
-        value: text/html; charset=utf-8
-    
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /index.html
