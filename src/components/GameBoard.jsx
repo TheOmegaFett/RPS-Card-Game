@@ -47,10 +47,13 @@ function GameBoard({ playerDeck, onBackToMenu, difficulty }) {
     setPlayerCard(roundResult.playerCard);
     setAiCard(roundResult.aiCard);
     setResult(roundResult.result);
-    setScore({
-      player: gameController.roundsWon,
-      ai: gameController.roundsLost
-    });
+    
+    setTimeout(() => {
+      setScore({
+        player: gameController.roundsWon,
+        ai: gameController.roundsLost
+      });
+    }, 4000);
 
     const playerOutOfCards = gameController.player.deck.length === 0 && gameController.player.hand.length === 0;
     const aiOutOfCards = gameController.ai.deck.length === 0 && gameController.ai.hand.length === 0;
