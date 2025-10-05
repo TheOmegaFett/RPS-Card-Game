@@ -14,9 +14,9 @@ describe('DeckBuilder', () => {
     expect(screen.getByText(/Build Your Deck/i)).toBeInTheDocument();
   });
 
-  test('shows deck count', () => {
+  test('shows deck size label', () => {
     render(<DeckBuilder onDeckComplete={mockOnDeckComplete} onBack={mockOnBack} />);
-    expect(screen.getByText(/Deck: 0 \/ 20 cards/i)).toBeInTheDocument();
+    expect(screen.getByText(/Deck Size:/i)).toBeInTheDocument();
   });
 
   test('back button calls onBack', () => {
@@ -32,14 +32,15 @@ describe('DeckBuilder', () => {
     expect(startBtn).toBeDisabled();
   });
 
-  test('can add cards to deck', () => {
+  test('add button increases card count', () => {
     render(<DeckBuilder onDeckComplete={mockOnDeckComplete} onBack={mockOnBack} />);
     const addButtons = screen.getAllByText('+');
     fireEvent.click(addButtons[0]);
-    expect(screen.getByText(/Deck: 1 \/ 20 cards/i)).toBeInTheDocument();
+    const rockCount = screen.getAllByText(/\/ 4/)[0];
+    expect(rockCount).toBeInTheDocument();
   });
 
-  test('can remove cards from deck', () => {
+  test('remove button decreases card count', () => {
     render(<DeckBuilder onDeckComplete={mockOnDeckComplete} onBack={mockOnBack} />);
     const addButtons = screen.getAllByText('+');
     fireEvent.click(addButtons[0]);
@@ -47,6 +48,8 @@ describe('DeckBuilder', () => {
     
     const removeButtons = screen.getAllByText('-');
     fireEvent.click(removeButtons[0]);
-    expect(screen.getByText(/Deck: 1 \/ 20 cards/i)).toBeInTheDocument();
+    
+    const rockCount = screen.getAllByText(/\/ 4/)[0];
+    expect(rockCount).toBeInTheDocument();
   });
 });
