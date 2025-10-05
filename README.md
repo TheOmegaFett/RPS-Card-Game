@@ -6,6 +6,7 @@
 [![npm](https://img.shields.io/npm/v/@theomegafett/rps-game-logic)](https://www.npmjs.com/package/@theomegafett/rps-game-logic)
 [![CI](https://github.com/TheOmegaFett/RPS-Card-Game/actions/workflows/ci.yml/badge.svg)](https://github.com/TheOmegaFett/RPS-Card-Game/actions/workflows/ci.yml)
 ![tests](https://img.shields.io/badge/tests-57%20passing-brightgreen)
+![accessibility](https://img.shields.io/badge/accessibility-WCAG%202.1-green)
 ![Build](https://img.shields.io/github/actions/workflow/status/TheOmegaFett/RPS-Card-Game/ci.yml?branch=Main)
 ![Last Commit](https://img.shields.io/github/last-commit/TheOmegaFett/RPS-Card-Game)
 ![Repo Size](https://img.shields.io/github/repo-size/TheOmegaFett/RPS-Card-Game)
@@ -280,6 +281,7 @@ This project upholds full transparency and strict adherence to Australian ethics
 ## 📚 Documentation
 
 - **[Appendix](APPENDIX.md)** - Academic context, learning outcomes, and project reflection
+- **[Dev Log](DEVLOG.md)** - Development roadmap, future features, and ongoing reflections
 - **[Contributing Guide](CONTRIBUTING.md)** - How to contribute to this project
 - **[Code of Conduct](CODE_OF_CONDUCT.md)** - Community guidelines
 - **[Testing Guide](TESTING.md)** - Manual testing procedures and planned automated tests
