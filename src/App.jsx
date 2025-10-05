@@ -218,7 +218,7 @@ function App() {
         <GameBoard
           playerDeck={playerDeck}
           onBackToMenu={handleBackToMenu}
-          difficulty={difficulty}
+          difficulty={settings.difficulty}
         />
       )}
     </div>
