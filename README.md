@@ -3,6 +3,8 @@
 ![version](https://img.shields.io/badge/version-1.0.1-blue)
 ![license](https://img.shields.io/badge/license-MIT-green)
 [![npm](https://img.shields.io/npm/v/@theomegafett/rps-game-logic)](https://www.npmjs.com/package/@theomegafett/rps-game-logic)
+[![CI](https://github.com/TheOmegaFett/RPS-Card-Game/actions/workflows/ci.yml/badge.svg)](https://github.com/TheOmegaFett/RPS-Card-Game/actions/workflows/ci.yml)
+![tests](https://img.shields.io/badge/tests-9%20passing-brightgreen)
 
 **Author:** Shane Miller (TheOmegaFett)
 
@@ -133,6 +135,8 @@ src/
 - ✅ Memory leak prevention (proper cleanup)
 - ✅ Performance optimizations (memoization)
 - ✅ Accessibility compliant (WCAG 2.1)
+- ✅ **Automated testing with Jest + React Testing Library**
+- ✅ **CI/CD pipeline with GitHub Actions**
 
 See [STYLE_GUIDE.md](STYLE_GUIDE.md) for complete coding standards and developer guidelines.
 

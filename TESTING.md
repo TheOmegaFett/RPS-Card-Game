@@ -94,20 +94,36 @@ Test all game functionality:
 - [ ] Buttons meet contrast requirements
 - [ ] Error messages clearly visible
 
-## Planned Automated Testing
+## ✅ Automated Testing (Implemented)
 
-### Future Test Framework
+### Current Test Framework
 
-**Recommended Stack:**
-- **Jest**: Test runner
-- **React Testing Library**: Component testing
-- **Jest-DOM**: Custom matchers
+**Stack:**
+- ✅ **Jest**: Test runner (built into Create React App)
+- ✅ **React Testing Library**: Component testing
+- ✅ **Jest-DOM**: Custom matchers
 
-### Installation (Future)
+### Running Tests
 
 ```bash
-npm install --save-dev @testing-library/react @testing-library/jest-dom @testing-library/user-event jest
+# Run all tests
+npm test
+
+# Run tests once (CI mode)
+npm test -- --watchAll=false
+
+# Run with coverage
+npm test -- --coverage --watchAll=false
 ```
+
+### Current Test Coverage
+
+**9 tests passing** across:
+- ✅ App rendering and navigation
+- ✅ StartScreen component behavior
+- ✅ Card class and base type logic (13 tests)
+- ✅ GameController winner determination (15 tests)
+- ✅ Deck validation and constraints (10 tests)
 
 ### Planned Test Coverage
 
