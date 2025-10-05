@@ -11,7 +11,8 @@ Core game logic for Rock Paper Scissors card game with deck building mechanics.
 - 🎴 **Card Management** - Complete card type system with hybrid and special cards
 - 📦 **Deck Building** - Deck validation with rarity limits
 - 🎮 **Game Controller** - Full game state management and round resolution
-- 🧪 **Well-Tested** - Comprehensive JSDoc documentation
+- 🧠 **AI Difficulty System** - Three modes with probabilistic card counting (Easy, Normal, Hard)
+- 🧪 **Well-Tested** - Comprehensive JSDoc documentation with automated tests
 
 ## Installation
 
@@ -28,7 +29,7 @@ npm install @theomegafett/rps-game-logic
 ## Quick Start
 
 ```javascript
-import { Card, Deck, GameController, CardType, getWinner } from '@theomegafett/rps-game-logic';
+import { Card, Deck, GameController, CardType, getWinner, chooseCard } from '@theomegafett/rps-game-logic';
 
 // Create a deck
 const deck = new Deck();
@@ -122,6 +123,53 @@ getWinner(rock, scissors); // Returns "card1"
 ```
 
 **Returns:** `"card1"` | `"card2"` | `"draw"` | `"blocked"`
+
+## AI Difficulty System (v1.1.0+)
+
+### chooseCard(aiHand, oppRemainingCounts, oppHistoryCounts, mode)
+
+Intelligent AI card selection with three difficulty modes:
+
+```javascript
+import { chooseCard, initializeCounts, updateCounts } from '@theomegafett/rps-game-logic';
+
+// Initialize tracking
+const oppRemainingCounts = initializeCounts(opponentDeck);
+const oppHistoryCounts = { Rock: 0, Paper: 0, Scissors: 0 };
+
+// AI chooses card based on difficulty
+const cardIndex = chooseCard(
+  aiHand,              // Array of Card objects
+  oppRemainingCounts,  // Cards left in opponent's deck
+  oppHistoryCounts,    // Cards opponent has played
+  'hard'               // 'easy' | 'normal' | 'hard'
+);
+
+// Play the chosen card
+const aiCard = aiHand[cardIndex];
+
+// Update tracking after opponent plays
+updateCounts(opponentCard, oppRemainingCounts, oppHistoryCounts);
+```
+
+**Difficulty Modes:**
+- **`'easy'`** - AI plays worst-EV card (loses intentionally, great for learning)
+- **`'normal'`** - AI plays randomly (classic RPS experience)
+- **`'hard'`** - AI uses Bayesian probability and card counting to play optimally
+
+**Safe to hot-swap mid-game!** Changing difficulty only affects future decisions.
+
+### AI Helper Functions
+
+```javascript
+// Initialize deck tracking
+const counts = initializeCounts(deck);
+// Returns: { Rock: 4, Paper: 3, Scissors: 3 }
+
+// Update after opponent plays
+updateCounts(playedCard, remainingCounts, historyCounts);
+// Mutates count objects in-place
+```
 
 ## Game Rules
 

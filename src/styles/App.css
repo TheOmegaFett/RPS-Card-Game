@@ -5,7 +5,64 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: var(--text-primary);
+}
+
+.app-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  z-index: 100;
+  background: var(--header-bg);
+  border-bottom-left-radius: 10px;
+}
+
+.theme-toggle {
+  background: var(--toggle-bg);
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+}
+
+.theme-toggle:hover {
+  background: var(--toggle-hover-bg);
+  transform: scale(1.1);
+}
+
+.difficulty-select {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-primary);
+  font-weight: bold;
+}
+
+.difficulty-dropdown {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 2px solid var(--button-text);
+  background: var(--button-bg);
+  color: var(--button-text);
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.difficulty-dropdown:hover {
+  background: var(--button-hover-bg);
 }
 
 .start-screen {
@@ -27,20 +84,20 @@
 .menu-btn {
   padding: 1rem 2rem;
   font-size: 1.2rem;
-  background: white;
-  color: #667eea;
+  background: var(--button-bg);
+  color: var(--button-text);
   border: none;
   border-radius: 10px;
   cursor: pointer;
   font-weight: bold;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 6px var(--button-shadow);
 }
 
 .menu-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
-  background: #f0f0f0;
+  box-shadow: 0 6px 10px var(--button-shadow);
+  background: var(--button-hover-bg);
 }
 
 .menu-btn:active {
@@ -56,7 +113,7 @@
 .scoreboard {
   margin-bottom: 2rem;
   padding: 1rem;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--overlay-bg);
   border-radius: 10px;
 }
 
@@ -86,17 +143,17 @@
 }
 
 .card-display {
-  background: white;
-  color: #333;
+  background: var(--card-bg);
+  color: var(--card-text);
   padding: 1.5rem;
   border-radius: 15px;
   min-width: 120px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px var(--card-shadow);
 }
 
 .card-display.winner {
-  background: lightgreen;
-  box-shadow: 0 0 20px rgba(144, 238, 144, 0.8);
+  background: var(--winner-bg);
+  box-shadow: 0 0 20px var(--winner-glow);
   transform: scale(1.1);
 }
 
@@ -134,14 +191,14 @@
 }
 
 .card-button {
-  background: white;
-  border: 3px solid #667eea;
+  background: var(--card-bg);
+  border: 3px solid var(--button-text);
   border-radius: 10px;
   padding: 1rem 1.5rem;
   font-size: 2rem;
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 6px var(--card-shadow);
   min-width: 100px;
   min-height: 80px;
 }
@@ -611,4 +668,44 @@
   .card-example .card-effect {
     min-width: auto;
   }
+}
+
+.flip-card {
+  background-color: transparent;
+  perspective: 1000px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flip-card-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 15px;
+}
+
+.flip-card-front {
+  background: var(--card-bg);
+  color: var(--card-text);
+}
+
+.flip-card-back {
+  background: var(--card-bg);
+  color: var(--card-text);
+  transform: rotateY(180deg);
 }

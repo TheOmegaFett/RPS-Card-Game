@@ -1,6 +1,6 @@
 # Rock Paper Scissors Card Game - React
 
-![version](https://img.shields.io/badge/version-1.0.1-blue)
+![version](https://img.shields.io/badge/version-1.1.0-blue)
 ![license](https://img.shields.io/badge/license-MIT-green)
 [![npm](https://img.shields.io/npm/v/@theomegafett/rps-game-logic)](https://www.npmjs.com/package/@theomegafett/rps-game-logic)
 [![CI](https://github.com/TheOmegaFett/RPS-Card-Game/actions/workflows/ci.yml/badge.svg)](https://github.com/TheOmegaFett/RPS-Card-Game/actions/workflows/ci.yml)
@@ -44,7 +44,9 @@ npm install @theomegafett/rps-game-logic
 
 - 🎴 Build custom 20-card decks with rarity limits
 - 🎮 Strategic gameplay with special card effects
-- 🤖 Battle against AI with full 20-card decks
+- 🤖 **Three AI difficulty modes** - Easy, Normal, and Hard with probabilistic card counting
+- 🌓 **Dark Mode** - Toggle between light and dark themes with localStorage persistence
+- 🎴 **Card Flip Animations** - Smooth 3D card flip effects
 - 📥 Import/Export deck configurations (.txt files)
 - 📱 Responsive design for mobile and desktop
 - ♿ Accessibility features (keyboard navigation, ARIA labels)
@@ -150,7 +152,7 @@ The core game logic has been extracted into a standalone NPM package for code re
 🔗 **[View on NPM](https://www.npmjs.com/package/@theomegafett/rps-game-logic)**
 
 - **Package Name**: `@theomegafett/rps-game-logic`
-- **Version**: 1.0.0
+- **Version**: 1.1.0
 - **Package Location**: `packages/rps-game-logic/`
 - **Installation**: `npm install @theomegafett/rps-game-logic`
 - **Usage**: `import { Card, Deck, GameController } from '@theomegafett/rps-game-logic';`

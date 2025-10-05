@@ -1,4 +1,4 @@
-import { Deck, Player, CardType } from '@theomegafett/rps-game-logic';
+import { Deck, Player, CardType, chooseCard, initializeCounts, updateCounts } from '@theomegafett/rps-game-logic';
 
 export class GameController {
   constructor() {
@@ -7,6 +7,8 @@ export class GameController {
     this.currentMatch = 0;
     this.roundsWon = 0;
     this.roundsLost = 0;
+    this.oppRemainingCounts = null;
+    this.oppHistoryCounts = null;
   }
 
   /**
@@ -27,6 +29,9 @@ export class GameController {
     this.roundsWon = 0;
     this.roundsLost = 0;
 
+    this.oppRemainingCounts = initializeCounts(playerDeck);
+    this.oppHistoryCounts = initializeCounts(playerDeck);
+
     for (let i = 0; i < 3; i++) {
       this.player.drawCard();
       this.ai.drawCard();
@@ -34,11 +39,12 @@ export class GameController {
   }
 
   /**
-   * Plays a single round with the selected player card against a random AI card
+   * Plays a single round with the selected player card against AI card chosen by difficulty
    * @param {number} playerCardIndex - Index of the card in player's hand to play
+   * @param {string} difficulty - AI difficulty level (EASY, NORMAL, HARD)
    * @returns {Object} Round result containing result string, playerCard, and aiCard
    */
-  playRound(playerCardIndex) {
+  playRound(playerCardIndex, difficulty = 'NORMAL') {
     const playerCard = this.player.playCard(playerCardIndex);
     if (!playerCard) {
       return { result: "Invalid card", playerCard: null, aiCard: null };
@@ -48,8 +54,10 @@ export class GameController {
       return { result: "AI has no cards", playerCard, aiCard: null };
     }
 
-    const aiCardIndex = Math.floor(Math.random() * this.ai.hand.length);
+    const aiCardIndex = chooseCard(this.ai.hand, this.oppRemainingCounts, this.oppHistoryCounts, difficulty);
     const aiCard = this.ai.playCard(aiCardIndex);
+
+    updateCounts(this.oppRemainingCounts, this.oppHistoryCounts, playerCard);
 
     const result = this._determineWinner(playerCard, aiCard);
     this._handleCardEffects(playerCard, aiCard, result);

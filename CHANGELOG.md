@@ -7,6 +7,43 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2025-01-05
+
+### Added
+- 🧠 **AI Difficulty Modes**: Three difficulty levels with smart gameplay
+  - **Easy**: AI deliberately plays worst-EV card (learning mode)
+  - **Normal**: AI plays randomly (classic experience)
+  - **Hard**: AI uses card counting and probability to make optimal plays
+- 🌓 **Dark Mode**: Complete dark theme with CSS variables and localStorage persistence
+  - Theme toggle button in app header
+  - Smooth transitions between themes
+  - Remembers preference across sessions
+  - Updates browser theme-color meta tag
+- 🎴 **Card Flip Animation**: Smooth 3D card flip effects
+  - GPU-accelerated CSS transforms
+  - Reusable FlipCard component
+  - Keyboard accessible
+- 🎯 **AI Logic Package**: Added `ai.js` module to NPM package
+  - `chooseCard()` - Select best card based on difficulty and card counting
+  - `updateCounts()` - Track opponent play history
+  - `initializeCounts()` - Initialize deck tracking
+  - Bayesian probability model with Dirichlet smoothing
+- 🧪 **AI Tests**: 10 new tests for AI decision-making logic
+- 📘 **Feature Documentation**: docs/NEW_FEATURES.md with usage guide
+
+### Changed
+- NPM package version bumped to 1.1.0 (minor feature release)
+- GameController now uses AI difficulty system
+- GameBoard accepts difficulty prop
+- App integrates theme and difficulty selectors
+- Package exports now include `/ai` module
+
+### Technical Improvements
+- Hot-swappable difficulty (safe to change mid-game)
+- Pure functional AI (no side effects, deterministic)
+- Card counting tracks remaining deck composition
+- Play history influences Hard mode predictions
+
 ## [1.0.1] - 2025-01-05
 
 ### Added

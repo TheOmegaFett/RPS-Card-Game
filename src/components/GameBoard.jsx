@@ -6,7 +6,7 @@ import ScoreBoard from './ScoreBoard.jsx';
 import MatchupDisplay from './MatchupDisplay.jsx';
 import GameOver from './GameOver.jsx';
 
-function GameBoard({ playerDeck, onBackToMenu }) {
+function GameBoard({ playerDeck, onBackToMenu, difficulty }) {
   const [gameController] = useState(() => new GameController());
   const [hand, setHand] = useState([]);
   const [playerCard, setPlayerCard] = useState(null);
@@ -34,7 +34,7 @@ function GameBoard({ playerDeck, onBackToMenu }) {
   }, [gameController, playerDeck]);
 
   const handleCardClick = (cardIndex) => {
-    const roundResult = gameController.playRound(cardIndex);
+    const roundResult = gameController.playRound(cardIndex, difficulty);
     
     setPlayerCard(roundResult.playerCard);
     setAiCard(roundResult.aiCard);
@@ -107,6 +107,7 @@ function GameBoard({ playerDeck, onBackToMenu }) {
 GameBoard.propTypes = {
   playerDeck: PropTypes.object.isRequired,
   onBackToMenu: PropTypes.func.isRequired,
+  difficulty: PropTypes.string.isRequired,
 };
 
 export default GameBoard;
