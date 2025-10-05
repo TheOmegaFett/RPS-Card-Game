@@ -4,8 +4,6 @@ import GameBoard from "./components/GameBoard.jsx";
 import DeckBuilder from "./components/DeckBuilder.jsx";
 import Instructions from "./components/Instructions.jsx";
 import SettingsPanel from "./components/SettingsPanel.jsx";
-import ThemeToggle from "./components/ThemeToggle.jsx";
-import DifficultySelect from "./components/DifficultySelect.jsx";
 import { Deck, DECK_MIN, DECK_MAX, CardType } from "@theomegafett/rps-game-logic";
 import { useSettings } from "./hooks/useSettings.js";
 import "./styles/theme.css";
