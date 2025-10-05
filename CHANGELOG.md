@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.2.0] - 2025-10-06
 
 ### Added
+- 🧪 **Settings Tests**: 7 new tests for settings system (64 total passing)
 - 🎵 **Audio System**: Sound effects using Web Audio API (no dependencies)
   - Countdown tick sounds (3, 2, 1)
   - GO! announcement sound
