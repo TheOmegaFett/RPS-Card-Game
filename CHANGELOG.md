@@ -7,6 +7,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.1] - 2025-10-06
+
+### Fixed
+- **Score spoiler prevention**: Score now updates after card flip completes (4s delay), not immediately on click
+- **Enhanced deck import validation**: Comprehensive error checking with aggregated error messages
+  - Validates file format, card types, and counts
+  - Checks for non-numeric, negative, or corrupted data
+  - Prevents deck size violations (checks total before adding)
+  - Shows up to 5 errors at once with clear descriptions
+  - Better user feedback for import failures
+
+### Changed
+- Improved error messages for deck import (more descriptive)
+
 ## [1.1.0] - 2025-10-06
 
 ### Added

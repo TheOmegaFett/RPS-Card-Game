@@ -1,6 +1,6 @@
 # Rock Paper Scissors Card Game - React
 
-![version](https://img.shields.io/badge/version-1.1.0-blue)
+![version](https://img.shields.io/badge/version-1.1.1-blue)
 ![React](https://img.shields.io/badge/React-18.x-61dafb?logo=react)
 ![license](https://img.shields.io/badge/license-MIT-green)
 [![npm](https://img.shields.io/npm/v/@theomegafett/rps-game-logic)](https://www.npmjs.com/package/@theomegafett/rps-game-logic)
@@ -161,7 +161,7 @@ The core game logic has been extracted into a standalone NPM package for code re
 🔗 **[View on NPM](https://www.npmjs.com/package/@theomegafett/rps-game-logic)**
 
 - **Package Name**: `@theomegafett/rps-game-logic`
-- **Version**: 1.1.0
+- **Version**: 1.1.0 (app v1.1.1)
 - **Package Location**: `packages/rps-game-logic/`
 - **Installation**: `npm install @theomegafett/rps-game-logic`
 - **Usage**: `import { Card, Deck, GameController } from '@theomegafett/rps-game-logic';`
