@@ -78,38 +78,60 @@ function App() {
    * @returns {Deck|null} The parsed deck, or null if parsing failed
    */
   const parseDeckContent = useCallback((content) => {
-    const deck = new Deck();
-    const lines = content.trim().split(/\r?\n/);
+  const deck = new Deck();
+  const lines = content.trim().split(/\r?\n/);
+    const errors = [];
+  let totalCards = 0;
 
-    for (const line of lines) {
-      if (!line.trim()) continue;
-
-      const parts = line.trim().split(/\s+/);
-      if (parts.length !== 2) {
-        alert(`Invalid format: ${line}`);
-        return null;
-      }
+  for (const line of lines) {
+  if (!line.trim()) continue;
+  
+  const parts = line.trim().split(/\s+/);
+  if (parts.length !== 2) {
+    errors.push(`Invalid format on line: "${line}" (expected: CARD_TYPE count)`);
+        continue;
+  }
 
       const cardTypeName = parts[0];
-      const count = parseInt(parts[1], 10);
+  const count = parseInt(parts[1], 10);
 
-      if (!CardType[cardTypeName]) {
-        alert(`Unknown card type: ${cardTypeName}`);
-        return null;
+  if (!CardType[cardTypeName]) {
+    errors.push(`Unknown card type: "${cardTypeName}"`);
+        continue;
+  }
+
+  if (!Number.isFinite(count) || count < 0) {
+  errors.push(`Invalid count for ${cardTypeName}: "${parts[1]}" (must be positive number)`);
+  continue;
+  }
+
+  if (count === 0) {
+      continue;
       }
 
-      const cardType = CardType[cardTypeName];
+  totalCards += count;
+  if (totalCards > DECK_MAX) {
+      errors.push(`Deck exceeds maximum size (${DECK_MAX} cards). Total would be ${totalCards}.`);
+        break;
+    }
 
+      const cardType = CardType[cardTypeName];
+      
       for (let i = 0; i < count; i++) {
         if (!deck.addCard(cardType)) {
-          alert(`Could not add ${cardTypeName} to deck`);
-          return null;
+          errors.push(`Cannot add ${cardTypeName} to deck (limit reached or deck full)`);
+          break;
         }
       }
     }
 
+    if (errors.length > 0) {
+      alert(`Deck import failed with ${errors.length} error(s):\n\n${errors.slice(0, 5).join('\n')}\n${errors.length > 5 ? `\n...and ${errors.length - 5} more errors` : ''}`);
+      return null;
+    }
+
     if (!deck.isValid()) {
-      alert(`Deck must have at least ${DECK_MIN} cards`);
+      alert(`Deck must have between ${DECK_MIN} and ${DECK_MAX} cards. Current: ${deck.size()}`);
       return null;
     }
 
