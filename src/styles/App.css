@@ -933,6 +933,28 @@
   margin: 0;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .flip-card-inner {
+    transition: none !important;
+  }
+  
+  .countdown-text {
+    animation: none !important;
+  }
+  
+  .card-button:hover {
+    transform: none;
+  }
+}
+
 .matchup-flip-card .flip-card {
   width: 300px !important;
   height: 400px !important;
