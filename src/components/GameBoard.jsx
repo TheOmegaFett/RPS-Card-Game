@@ -7,7 +7,7 @@ import MatchupDisplay from './MatchupDisplay.jsx';
 import GameOver from './GameOver.jsx';
 import DeckPile from './DeckPile.jsx';
 
-function GameBoard({ playerDeck, onBackToMenu, difficulty }) {
+function GameBoard({ playerDeck, onBackToMenu, difficulty, soundEnabled, volume }) {
   const [gameController] = useState(() => new GameController());
   const [hand, setHand] = useState([]);
   const [playerCard, setPlayerCard] = useState(null);
@@ -124,7 +124,13 @@ function GameBoard({ playerDeck, onBackToMenu, difficulty }) {
         />
       </div>
 
-      <MatchupDisplay playerCard={playerCard} aiCard={aiCard} result={result} />
+      <MatchupDisplay 
+        playerCard={playerCard} 
+        aiCard={aiCard} 
+        result={result}
+        soundEnabled={soundEnabled}
+        volume={volume}
+      />
       
       <PlayerHand hand={hand} onCardClick={handleCardClick} disabled={!cardsClickable} />
     </div>
@@ -135,6 +141,8 @@ GameBoard.propTypes = {
   playerDeck: PropTypes.object.isRequired,
   onBackToMenu: PropTypes.func.isRequired,
   difficulty: PropTypes.string.isRequired,
+  soundEnabled: PropTypes.bool,
+  volume: PropTypes.number,
 };
 
 export default GameBoard;

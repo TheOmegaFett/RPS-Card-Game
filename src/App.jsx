@@ -251,6 +251,8 @@ function App() {
           playerDeck={playerDeck}
           onBackToMenu={handleBackToMenu}
           difficulty={settings.difficulty}
+          soundEnabled={settings.soundEnabled}
+          volume={settings.volume}
         />
       )}
     </div>
