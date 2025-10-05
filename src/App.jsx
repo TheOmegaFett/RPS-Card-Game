@@ -3,16 +3,27 @@ import StartScreen from "./components/StartScreen.jsx";
 import GameBoard from "./components/GameBoard.jsx";
 import DeckBuilder from "./components/DeckBuilder.jsx";
 import Instructions from "./components/Instructions.jsx";
+import SettingsPanel from "./components/SettingsPanel.jsx";
 import ThemeToggle from "./components/ThemeToggle.jsx";
 import DifficultySelect from "./components/DifficultySelect.jsx";
-import { Deck, DECK_MIN, CardType } from "@theomegafett/rps-game-logic";
+import { Deck, DECK_MIN, DECK_MAX, CardType } from "@theomegafett/rps-game-logic";
+import { useSettings } from "./hooks/useSettings.js";
 import "./styles/theme.css";
 import "./styles/App.css";
 
 function App() {
   const [currentScreen, setCurrentScreen] = useState("start");
   const [playerDeck, setPlayerDeck] = useState(null);
-  const [difficulty, setDifficulty] = useState("NORMAL");
+  const [showSettings, setShowSettings] = useState(false);
+  const {
+    settings,
+    toggleTheme,
+    toggleSound,
+    toggleReducedMotion,
+    toggleHighContrast,
+    setVolume,
+    setDifficulty,
+  } = useSettings();
 
   /**
    * Creates the default starter deck with a balanced mix of cards
@@ -189,14 +200,35 @@ function App() {
    */
   const handleDifficultyChange = useCallback((newDifficulty) => {
     setDifficulty(newDifficulty);
-  }, []);
+  }, [setDifficulty]);
 
   return (
     <div className="App">
       <div className="app-header">
         <DifficultySelect onDifficultyChange={handleDifficultyChange} />
         <ThemeToggle />
+        <button 
+          type="button" 
+          className="settings-btn"
+          onClick={() => setShowSettings(true)}
+          aria-label="Open settings"
+        >
+          ⚙️ Settings
+        </button>
       </div>
+
+      {showSettings && (
+        <SettingsPanel
+          settings={settings}
+          onToggleTheme={toggleTheme}
+          onToggleSound={toggleSound}
+          onToggleMotion={toggleReducedMotion}
+          onToggleContrast={toggleHighContrast}
+          onVolumeChange={setVolume}
+          onDifficultyChange={setDifficulty}
+          onClose={() => setShowSettings(false)}
+        />
+      )}
       {currentScreen === "start" && (
         <StartScreen
           onNewGame={handleNewGame}
