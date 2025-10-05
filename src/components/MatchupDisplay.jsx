@@ -17,10 +17,13 @@ function MatchupDisplay({ playerCard, aiCard, result }) {
           if (prev === 1) {
             clearInterval(countdownInterval);
             setTimeout(() => {
-              setShowCards(true);
-              setCountdown(null);
+              setCountdown("GO!");
+              setTimeout(() => {
+                setShowCards(true);
+                setCountdown(null);
+              }, 1000);
             }, 300);
-            return "GO!";
+            return null;
           }
           return prev - 1;
         });

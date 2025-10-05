@@ -5,6 +5,7 @@ import PlayerHand from './PlayerHand.jsx';
 import ScoreBoard from './ScoreBoard.jsx';
 import MatchupDisplay from './MatchupDisplay.jsx';
 import GameOver from './GameOver.jsx';
+import DeckPile from './DeckPile.jsx';
 
 function GameBoard({ playerDeck, onBackToMenu, difficulty }) {
   const [gameController] = useState(() => new GameController());
@@ -89,6 +90,17 @@ function GameBoard({ playerDeck, onBackToMenu, difficulty }) {
       <button type="button" className="menu-btn back-btn" onClick={onBackToMenu}>
         Back to Menu
       </button>
+      
+      <div className="deck-piles-container">
+        <DeckPile 
+          cardCount={gameController.ai?.deck.length || 0} 
+          label="AI Deck"
+        />
+        <DeckPile 
+          cardCount={gameController.player?.deck.length || 0} 
+          label="Your Deck"
+        />
+      </div>
       
       <div className="ai-section">
         <h3>AI Hand: {gameController.ai?.hand.length || 0} cards</h3>
