@@ -2,6 +2,8 @@
 
 A turn-based card game featuring Rock, Paper, Scissors mechanics with special card types, deck building, and strategic gameplay.
 
+![Game Demo](docs/demo.png)
+
 ## Installation
 
 ```bash
