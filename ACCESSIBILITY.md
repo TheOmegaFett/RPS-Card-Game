@@ -209,9 +209,14 @@ For Coder Academy / AIT submissions:
 **Lighthouse Scores:** ✅
 
 - **Performance:** 100/100 🏆
-- **Accessibility:** 94/100 ✅
-- **Best Practices:** 96/100 ✅
-- **SEO:** 91/100 ✅
+- **Accessibility:** 94/100 ✅ (minor contrast issues in dark mode)
+- **Best Practices:** 96/100 ✅ (CSP/security headers recommended)
+- **SEO:** 91/100 ✅ (improved with robots.txt)
+
+**Known Issues:**
+- Some dark mode text may have slightly low contrast (minor)
+- Security headers (CSP, HSTS, COOP) require server configuration
+- JavaScript bundle could be reduced further (code splitting)
 
 - **Date:** October 6, 2025
 - **Report:** [lighthouse-accessibility.pdf](docs/lighthouse-accessibility.pdf)

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rps-card-game-qpb8.onrender.com/sitemap.xml
