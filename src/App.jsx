@@ -192,14 +192,6 @@ function App() {
     setCurrentScreen("instructions");
   }, []);
 
-  /**
-   * Handles difficulty selection change
-   * @param {string} newDifficulty - The selected difficulty level
-   */
-  const handleDifficultyChange = useCallback((newDifficulty) => {
-    setDifficulty(newDifficulty);
-  }, [setDifficulty]);
-
   return (
     <div className="App">
       <div className="app-header">
