@@ -771,11 +771,10 @@
 @media (max-width: 400px) {
   .game-board {
     padding: 0.5rem;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    overflow: hidden;
+    gap: 0.25rem;
   }
 
   .game-header {
@@ -811,45 +810,40 @@
   }
 
   .matchup-display {
-    padding: 0.5rem;
-    min-height: auto;
+    padding: 0.25rem;
     margin: 0;
-    flex: 0 1 auto;
   }
 
   .matchup-cards {
     gap: 0.5rem;
-    margin-top: 0.25rem;
+    margin: 0;
   }
 
   .vs {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 
   .matchup-flip-card .flip-card {
-    width: 22vw !important;
-    height: 30vw !important;
-    max-width: 100px;
-    max-height: 140px;
+    width: 80px !important;
+    height: 110px !important;
   }
 
   .matchup-flip-card .flip-card-inner,
   .matchup-flip-card .flip-card-front,
   .matchup-flip-card .flip-card-back {
-    width: 22vw !important;
-    height: 30vw !important;
-    max-width: 100px;
-    max-height: 140px;
-    padding: 0.5rem;
+    width: 80px !important;
+    height: 110px !important;
+    padding: 0.25rem;
   }
 
   .matchup-flip-card .card-emoji {
-    font-size: 1.5rem !important;
-    margin-bottom: 0.25rem !important;
+    font-size: 1.3rem !important;
+    margin-bottom: 0.1rem !important;
+    gap: 0.1rem;
   }
 
   .matchup-flip-card .card-label {
-    font-size: 0.7rem !important;
+    font-size: 0.65rem !important;
   }
 
   .result-text {
