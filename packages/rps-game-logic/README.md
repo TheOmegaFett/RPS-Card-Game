@@ -1,7 +1,9 @@
 # @theomegafett/rps-game-logic
 
-[![npm version](https://badge.fury.io/js/@theomegafett%2Frps-game-logic.svg)](https://www.npmjs.com/package/@theomegafett/rps-game-logic)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![npm version](https://img.shields.io/npm/v/@theomegafett/rps-game-logic)](https://www.npmjs.com/package/@theomegafett/rps-game-logic)
+[![npm downloads](https://img.shields.io/npm/dw/@theomegafett/rps-game-logic)](https://www.npmjs.com/package/@theomegafett/rps-game-logic)
+[![license](https://img.shields.io/npm/l/@theomegafett/rps-game-logic)](https://opensource.org/licenses/MIT)
+[![issues](https://img.shields.io/github/issues/TheOmegaFett/RPS-Card-Game)](https://github.com/TheOmegaFett/RPS-Card-Game/issues)
 
 Core game logic for Rock Paper Scissors card game with deck building mechanics.
 

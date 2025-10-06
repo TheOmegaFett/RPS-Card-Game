@@ -1,9 +1,13 @@
 {
   "name": "@theomegafett/rps-game-logic",
   "version": "1.1.0",
-  "description": "Core game logic for Rock Paper Scissors card game with deck building mechanics",
+  "description": "Core game logic for a Rock Paper Scissors deck-builder with AI opponents, hybrid cards, and full game controller for Node.js and browser",
   "type": "module",
   "main": "./src/index.js",
+  "types": "./src/index.d.ts",
+  "engines": {
+    "node": ">=16"
+  },
   "exports": {
     ".": "./src/index.js",
     "./card": "./src/Card.js",
@@ -19,13 +23,21 @@
   "keywords": [
     "rock-paper-scissors",
     "card-game",
-    "game-logic",
-    "rps",
     "deck-builder",
-    "omega",
-    "theomegafett"
+    "turn-based",
+    "game-logic",
+    "javascript",
+    "nodejs",
+    "browser",
+    "ai-game",
+    "game-ai",
+    "logic-engine",
+    "game-dev",
+    "npm-package",
+    "open-source",
+    "rps"
   ],
-  "author": "TheOmegaFett",
+  "author": "Shane Miller (@TheOmegaFett)",
   "license": "MIT",
   "repository": {
     "type": "git",
