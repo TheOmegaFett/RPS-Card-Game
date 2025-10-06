@@ -2,9 +2,13 @@
 
 [![npm version](https://img.shields.io/npm/v/@theomegafett/rps-game-logic)](https://www.npmjs.com/package/@theomegafett/rps-game-logic)
 [![npm downloads](https://img.shields.io/npm/dw/@theomegafett/rps-game-logic)](https://www.npmjs.com/package/@theomegafett/rps-game-logic)
+[![min size](https://img.shields.io/bundlephobia/min/@theomegafett/rps-game-logic)](https://bundlephobia.com/package/@theomegafett/rps-game-logic)
 [![minzip size](https://img.shields.io/bundlephobia/minzip/@theomegafett/rps-game-logic)](https://bundlephobia.com/package/@theomegafett/rps-game-logic)
+[![types](https://img.shields.io/npm/types/@theomegafett/rps-game-logic)](https://www.npmjs.com/package/@theomegafett/rps-game-logic)
 [![license](https://img.shields.io/npm/l/@theomegafett/rps-game-logic)](https://opensource.org/licenses/MIT)
 [![issues](https://img.shields.io/github/issues/TheOmegaFett/RPS-Card-Game)](https://github.com/TheOmegaFett/RPS-Card-Game/issues)
+
+Core game logic for Rock Paper Scissors card game with deck building mechanics. **~8KB minzipped**
 
 Core game logic for Rock Paper Scissors card game with deck building mechanics.
 
@@ -73,6 +77,28 @@ console.log(result); // { result: "Player Wins", playerCard, aiCard }
   console.log('Round 1:', game.playRound(0));
   console.log('Round 2:', game.playRound(0));
 </script>
+```
+
+## Installation & Usage
+
+### ESM (Modern)
+
+```javascript
+import { Card, Deck, GameController, CardType } from '@theomegafett/rps-game-logic';
+```
+
+### CommonJS (Node.js)
+
+```javascript
+const { Deck, GameController, CardType } = require('@theomegafett/rps-game-logic');
+```
+
+### Subpath Imports (Tree-shaking)
+
+```javascript
+import { Deck } from '@theomegafett/rps-game-logic/deck';
+import { getWinner } from '@theomegafett/rps-game-logic/game';
+import { DECK_MIN, DECK_MAX } from '@theomegafett/rps-game-logic/constants';
 ```
 
 ## Quick Start
@@ -312,12 +338,18 @@ import { CARD_LIMITS } from '@theomegafett/rps-game-logic/constants';
 import { GameController, Deck, CardType } from '@theomegafett/rps-game-logic';
 
 const deck: Deck = new Deck();
-deck.addCard(CardType.ROCK);
+[CardType.ROCK, CardType.PAPER, CardType.SCISSORS,
+ CardType.ROCK, CardType.PAPER, CardType.SCISSORS,
+ CardType.ROCK, CardType.PAPER, CardType.SCISSORS,
+ CardType.ROCK].forEach(t => deck.addCard(t));
 
 const game: GameController = new GameController();
+game.setupGame(deck);
+const result = game.playRound(0);
+// Full autocomplete for result.playerCard, result.aiCard, etc!
 ```
 
-All types are auto-completed with full documentation!
+All types auto-completed with full documentation in VS Code!
 
 ## License
 
