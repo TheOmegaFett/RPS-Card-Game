@@ -1,7 +1,7 @@
 {
   "name": "@theomegafett/rps-game-logic",
-  "version": "1.2.2",
-  "description": "Core game logic for a Rock Paper Scissors deck-builder with AI opponents, hybrid cards, and full game controller for Node.js and browser",
+  "version": "1.2.3",
+  "description": "Core game logic for a Rock-Paper-Scissors deck-builder with AI opponents, hybrid cards, and a full game controller for Node.js and browser.",
   "type": "module",
   "main": "./src/index.js",
   "module": "./src/index.js",
@@ -9,6 +9,17 @@
   "sideEffects": false,
   "engines": {
     "node": ">=16"
+  },
+  "typesVersions": {
+    "*": {
+      "deck": ["src/Deck.js"],
+      "card": ["src/Card.js"],
+      "game": ["src/GameController.js"],
+      "player": ["src/Player.js"],
+      "constants": ["src/constants.js"],
+      "ai": ["src/ai.js"],
+      "*": ["src/index.js"]
+    }
   },
   "exports": {
     ".": "./src/index.js",
