@@ -714,9 +714,24 @@
   }
 
   .deck-piles-container {
-    flex-direction: column;
-    gap: 1rem;
-    align-items: center;
+    flex-direction: row;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+  }
+
+  .deck-stack {
+    width: 60px;
+    height: 84px;
+  }
+
+  .deck-count {
+    font-size: 0.75rem;
+  }
+
+  .deck-card-2,
+  .deck-card-3 {
+    display: none;
   }
 
   .card-selector {
@@ -763,34 +778,64 @@
     padding: 0.75rem 1.5rem;
   }
 
+  .scoreboard {
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .scoreboard h3 {
+    font-size: 1.2rem;
+  }
+
+  .ai-section {
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .ai-section h3 {
+    font-size: 1rem;
+  }
+
+  .matchup-display {
+    padding: 1rem;
+    min-height: 200px;
+    margin: 0.5rem 0;
+  }
+
   .matchup-flip-card .flip-card {
-    width: 160px !important;
-    height: 220px !important;
+    width: 140px !important;
+    height: 200px !important;
   }
 
   .matchup-flip-card .flip-card-inner,
   .matchup-flip-card .flip-card-front,
   .matchup-flip-card .flip-card-back {
-    width: 160px !important;
-    height: 220px !important;
+    width: 140px !important;
+    height: 200px !important;
   }
 
   .matchup-flip-card .card-emoji {
-    font-size: 2.8rem !important;
+    font-size: 2.5rem !important;
   }
 
   .matchup-flip-card .card-label {
-    font-size: 1rem !important;
+    font-size: 0.9rem !important;
   }
 
   .card-button {
     min-width: 60px;
     min-height: 50px;
     font-size: 1.2rem;
+    padding: 0.5rem;
   }
 
   .countdown-text {
-    font-size: 3rem;
+    font-size: 2.5rem;
+  }
+
+  .player-hand h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
   }
 }
 
