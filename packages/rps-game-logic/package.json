@@ -1,6 +1,6 @@
 {
   "name": "@theomegafett/rps-game-logic",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "Core game logic for a Rock-Paper-Scissors deck-builder with AI opponents, hybrid cards, and a full game controller for Node.js and browser.",
   "type": "module",
   "main": "./src/index.js",
@@ -61,10 +61,16 @@
   "bugs": {
     "url": "https://github.com/TheOmegaFett/RPS-Card-Game/issues"
   },
-  "funding": {
-    "type": "github",
-    "url": "https://github.com/sponsors/TheOmegaFett"
-  },
+  "funding": [
+    {
+      "type": "github",
+      "url": "https://github.com/sponsors/TheOmegaFett"
+    },
+    {
+      "type": "buymeacoffee",
+      "url": "https://buymeacoffee.com/theomegafett"
+    }
+  ],
   "publishConfig": {
     "access": "public"
   },
