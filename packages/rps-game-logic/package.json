@@ -1,6 +1,6 @@
 {
   "name": "@theomegafett/rps-game-logic",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Core game logic for a Rock Paper Scissors deck-builder with AI opponents, hybrid cards, and full game controller for Node.js and browser",
   "type": "module",
   "main": "./src/index.js",

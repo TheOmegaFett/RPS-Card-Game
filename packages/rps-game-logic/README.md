@@ -225,7 +225,7 @@ updateCounts(playedCard, remainingCounts, historyCounts);
 ## Constants
 
 ```javascript
-import { DECK_MIN, DECK_MAX, INITIAL_HAND_SIZE, CARD_LIMITS } from '@omega/rps-game-logic';
+import { DECK_MIN, DECK_MAX, INITIAL_HAND_SIZE, CARD_LIMITS } from '@theomegafett/rps-game-logic';
 
 DECK_MIN            // 10
 DECK_MAX            // 20
