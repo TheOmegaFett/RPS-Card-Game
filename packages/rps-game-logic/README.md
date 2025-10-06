@@ -29,17 +29,28 @@ npm install @theomegafett/rps-game-logic
 
 🔗 **[npmjs.com/package/@theomegafett/rps-game-logic](https://www.npmjs.com/package/@theomegafett/rps-game-logic)**
 
+## Why This Package?
+
+✅ **Zero dependencies** - Pure JavaScript, works anywhere  
+✅ **TypeScript support** - Ships with `.d.ts` for full IntelliSense  
+✅ **AI included** - Three difficulty modes with card counting  
+✅ **Tree-shakeable** - Import only what you need  
+✅ **Tiny** - ~8KB minzipped  
+✅ **Well-tested** - Comprehensive test suite  
+
 ## Zero to 60 Seconds
 
 ```javascript
 import { Deck, GameController, CardType } from '@theomegafett/rps-game-logic';
 
+// Create a valid 10-card deck
 const deck = new Deck();
-deck.addCard(CardType.ROCK);
-deck.addCard(CardType.PAPER);
-deck.addCard(CardType.SCISSORS);
-// ... add 7+ more cards
+[CardType.ROCK, CardType.PAPER, CardType.SCISSORS,
+ CardType.ROCK, CardType.PAPER, CardType.SCISSORS,
+ CardType.ROCK, CardType.PAPER, CardType.SCISSORS,
+ CardType.ROCK].forEach(t => deck.addCard(t));
 
+// Play a game
 const game = new GameController();
 game.setupGame(deck);
 const result = game.playRound(0); // Play first card
@@ -50,10 +61,17 @@ console.log(result); // { result: "Player Wins", playerCard, aiCard }
 
 ```html
 <script type="module">
-  import { Deck, CardType } from 'https://cdn.jsdelivr.net/npm/@theomegafett/rps-game-logic@latest/+esm';
+  import { Deck, GameController, CardType } from 'https://cdn.jsdelivr.net/npm/@theomegafett/rps-game-logic@latest/+esm';
+  
   const deck = new Deck();
-  deck.addCard(CardType.ROCK);
-  console.log(deck.size()); // 1
+  for (let i = 0; i < 10; i++) {
+    deck.addCard([CardType.ROCK, CardType.PAPER, CardType.SCISSORS][i % 3]);
+  }
+  
+  const game = new GameController();
+  game.setupGame(deck);
+  console.log('Round 1:', game.playRound(0));
+  console.log('Round 2:', game.playRound(0));
 </script>
 ```
 
@@ -184,9 +202,12 @@ updateCounts(opponentCard, oppRemainingCounts, oppHistoryCounts);
 ```
 
 **Difficulty Modes:**
-- **`'easy'`** - AI plays worst-EV card (loses intentionally, great for learning)
-- **`'normal'`** - AI plays randomly (classic RPS experience)
-- **`'hard'`** - AI uses Bayesian probability and card counting to play optimally
+
+| Mode | Behavior | Use Case |
+|------|----------|----------|
+| `'easy'` | Picks worst-EV card intentionally | Tutorials, beginners |
+| `'normal'` | Random uniform choice | Classic RPS feel |
+| `'hard'` | Bayesian + card counting | Competitive AI |
 
 **Safe to hot-swap mid-game!** Changing difficulty only affects future decisions.
 
@@ -285,7 +306,18 @@ import { CARD_LIMITS } from '@theomegafett/rps-game-logic/constants';
 
 ## TypeScript Support
 
-This package includes JSDoc type annotations. For full TypeScript support, you can generate type definitions or use the JSDoc comments directly.
+✅ **Ships with `.d.ts` files** - Full IntelliSense in VS Code and TypeScript projects out of the box.
+
+```typescript
+import { GameController, Deck, CardType } from '@theomegafett/rps-game-logic';
+
+const deck: Deck = new Deck();
+deck.addCard(CardType.ROCK);
+
+const game: GameController = new GameController();
+```
+
+All types are auto-completed with full documentation!
 
 ## License
 
