@@ -4,7 +4,9 @@
   "description": "Core game logic for a Rock Paper Scissors deck-builder with AI opponents, hybrid cards, and full game controller for Node.js and browser",
   "type": "module",
   "main": "./src/index.js",
+  "module": "./src/index.js",
   "types": "./src/index.d.ts",
+  "sideEffects": false,
   "engines": {
     "node": ">=16"
   },

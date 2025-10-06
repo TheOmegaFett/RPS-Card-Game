@@ -2,6 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/@theomegafett/rps-game-logic)](https://www.npmjs.com/package/@theomegafett/rps-game-logic)
 [![npm downloads](https://img.shields.io/npm/dw/@theomegafett/rps-game-logic)](https://www.npmjs.com/package/@theomegafett/rps-game-logic)
+[![minzip size](https://img.shields.io/bundlephobia/minzip/@theomegafett/rps-game-logic)](https://bundlephobia.com/package/@theomegafett/rps-game-logic)
 [![license](https://img.shields.io/npm/l/@theomegafett/rps-game-logic)](https://opensource.org/licenses/MIT)
 [![issues](https://img.shields.io/github/issues/TheOmegaFett/RPS-Card-Game)](https://github.com/TheOmegaFett/RPS-Card-Game/issues)
 
@@ -27,6 +28,34 @@ npm install @theomegafett/rps-game-logic
 ### View on NPM
 
 🔗 **[npmjs.com/package/@theomegafett/rps-game-logic](https://www.npmjs.com/package/@theomegafett/rps-game-logic)**
+
+## Zero to 60 Seconds
+
+```javascript
+import { Deck, GameController, CardType } from '@theomegafett/rps-game-logic';
+
+const deck = new Deck();
+deck.addCard(CardType.ROCK);
+deck.addCard(CardType.PAPER);
+deck.addCard(CardType.SCISSORS);
+// ... add 7+ more cards
+
+const game = new GameController();
+game.setupGame(deck);
+const result = game.playRound(0); // Play first card
+console.log(result); // { result: "Player Wins", playerCard, aiCard }
+```
+
+### Try in Browser (No Install)
+
+```html
+<script type="module">
+  import { Deck, CardType } from 'https://cdn.jsdelivr.net/npm/@theomegafett/rps-game-logic@latest/+esm';
+  const deck = new Deck();
+  deck.addCard(CardType.ROCK);
+  console.log(deck.size()); // 1
+</script>
+```
 
 ## Quick Start
 
