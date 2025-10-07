@@ -1,5 +1,7 @@
 # Rock Paper Scissors Card Game - React
 
+👉 **Live Demo:** [https://rps-card-game-qpb8.onrender.com](https://rps-card-game-qpb8.onrender.com)
+
 ![version](https://img.shields.io/badge/version-1.2.0-blue)
 ![React](https://img.shields.io/badge/React-18.x-61dafb?logo=react)
 ![license](https://img.shields.io/badge/license-MIT-green)
