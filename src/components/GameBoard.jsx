@@ -77,6 +77,7 @@ function GameBoard({ playerDeck, onBackToMenu, difficulty, soundEnabled, volume 
 
   const handlePlayAgain = () => {
     setShowGameOver(false);
+    setCardsClickable(true);
     gameController.setupGame(playerDeck);
     setHand([...gameController.player.hand]);
     setScore({

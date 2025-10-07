@@ -1,6 +1,21 @@
 import { Deck, Player, CardType, chooseCard, initializeCounts, updateCounts } from '@theomegafett/rps-game-logic';
 
+/**
+ * GameController - Manages game state, AI decision-making, and round resolution
+ * Integrates the core game logic package with UI-specific features like difficulty modes
+ * 
+ * @class
+ * @property {Player} player - The human player
+ * @property {Player} ai - The AI opponent
+ * @property {number} roundsWon - Count of rounds won by player
+ * @property {number} roundsLost - Count of rounds lost by player
+ * @property {Object} oppRemainingCounts - Card type counts remaining in opponent's deck
+ * @property {Object} oppHistoryCounts - Card type counts opponent has played
+ */
 export class GameController {
+  /**
+   * Creates a new GameController instance
+   */
   constructor() {
     this.player = null;
     this.ai = null;
