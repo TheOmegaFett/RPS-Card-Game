@@ -10,6 +10,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.2.0] - 2025-10-06
 
 ### Added
+- 📁 **Documentation Reorganization**: Clean structure with docs/ and .github/ folders
+  - Moved guides to docs/ (kebab-case naming)
+  - Moved community files to .github/ (auto-detected by GitHub)
+  - Clean root with README, LICENSE, CHANGELOG only
+- 💰 **Funding Options**: GitHub Sponsors and Buy Me a Coffee
+  - FUNDING.yml for GitHub sponsor button
+  - NPM package funding field
+- 🔗 **Live Demo Link**: Prominent link at top of README
 - 🧪 **Comprehensive Test Suite**: 70 tests with surgical precision approach
   - Component tests: App, StartScreen, DeckBuilder, SettingsPanel, MatchupDisplay, ErrorBoundary
   - Logic tests: Player, Card, Deck, GameController, AI, Round resolver
@@ -46,11 +54,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - All accessibility preferences saved and restored
 - Header simplified to settings button only (all controls in settings panel)
 - Removed unused components from header (ThemeToggle, DifficultySelect)
+- NPM package published as v1.2.4 with enhanced metadata
+- Documentation structure reorganized (docs/, .github/ folders)
+
+### Fixed
+- **Cards unclickable after Play Again**: Reset cardsClickable state
+- Mobile responsiveness improved for iPhone SE (viewport units)
+- ESM-only clarified in package README (removed misleading CJS example)
 
 ### Technical
-- Code coverage tracking enabled (11.3% baseline)
+- Code coverage: 41% (70 tests passing)
 - Enhanced error handling in settings localStorage
 - Data attributes for accessibility modes (data-reduced-motion, data-high-contrast)
+- ErrorBoundary component for crash recovery
+- Comprehensive JSDoc documentation added to GameController
 
 ## [1.1.1] - 2025-10-06
 
