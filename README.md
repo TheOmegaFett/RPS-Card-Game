@@ -17,7 +17,7 @@
 
 **Author:** Shane Miller (TheOmegaFett)
 
-🔗 **Quick Links:** [Appendix](APPENDIX.md) | [Contributing](CONTRIBUTING.md) | [Deployment](DEPLOYMENT.md) | [Testing](TESTING.md) | [Changelog](CHANGELOG.md)
+🔗 **Quick Links:** [Appendix](docs/appendix.md) | [Contributing](.github/CONTRIBUTING.md) | [Deployment](docs/deployment.md) | [Testing](docs/testing.md) | [Changelog](CHANGELOG.md)
 
 ---
 
@@ -164,7 +164,7 @@ The core game logic has been extracted into a standalone NPM package for code re
 🔗 **[View on NPM](https://www.npmjs.com/package/@theomegafett/rps-game-logic)**
 
 - **Package Name**: `@theomegafett/rps-game-logic`
-- **Version**: 1.1.0 (app v1.1.1)
+- **Version**: 1.2.4 (app v1.2.0)
 - **Package Location**: `packages/rps-game-logic/`
 - **Installation**: `npm install @theomegafett/rps-game-logic`
 - **Usage**: `import { Card, Deck, GameController } from '@theomegafett/rps-game-logic';`
@@ -286,14 +286,22 @@ This project upholds full transparency and strict adherence to Australian ethics
 
 ## 📚 Documentation
 
-- **[Appendix](APPENDIX.md)** - Academic context, learning outcomes, and project reflection
-- **[Dev Log](DEVLOG.md)** - Development roadmap, future features, and ongoing reflections
-- **[Contributing Guide](CONTRIBUTING.md)** - How to contribute to this project
-- **[Code of Conduct](CODE_OF_CONDUCT.md)** - Community guidelines
-- **[Testing Guide](TESTING.md)** - Manual testing procedures and planned automated tests
-- **[Deployment Guide](DEPLOYMENT.md)** - Deploy to Render, Netlify, Vercel, or GitHub Pages
+### Core Documentation
 - **[Changelog](CHANGELOG.md)** - Version history and release notes
-- **[Style Guide](STYLE_GUIDE.md)** - Coding standards and best practices
+- **[Contributing Guide](.github/CONTRIBUTING.md)** - How to contribute to this project
+- **[Code of Conduct](.github/CODE_OF_CONDUCT.md)** - Community guidelines
+
+### Technical Guides
+- **[Testing Guide](docs/testing.md)** - Automated tests and testing strategy
+- **[Deployment Guide](docs/deployment.md)** - Deploy to Render, Netlify, Vercel, or GitHub Pages
+- **[Style Guide](docs/style-guide.md)** - Coding standards and best practices
+- **[Accessibility](docs/accessibility.md)** - WCAG 2.1 AA compliance and audit results
+
+### Project Documentation
+- **[Appendix](docs/appendix.md)** - Academic context, learning outcomes, and reflection
+- **[Dev Log](docs/devlog.md)** - Development roadmap and future features
+
+📂 **[View All Docs](docs/)** | 🐛 **[Report Issues](https://github.com/TheOmegaFett/RPS-Card-Game/issues)**
 
 ## License
 
