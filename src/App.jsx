@@ -4,6 +4,7 @@ import GameBoard from "./components/GameBoard.jsx";
 import DeckBuilder from "./components/DeckBuilder.jsx";
 import Instructions from "./components/Instructions.jsx";
 import SettingsPanel from "./components/SettingsPanel.jsx";
+import AppShell from "./components/layout/AppShell.jsx";
 import { Deck, DECK_MIN, DECK_MAX, CardType } from "@theomegafett/rps-game-logic";
 import { useSettings } from "./hooks/useSettings.js";
 import "./styles/theme.css";
@@ -194,55 +195,60 @@ function App() {
 
   return (
     <div className="App">
-      <div className="app-header">
-        <button 
-          type="button" 
-          className="settings-btn"
-          onClick={() => setShowSettings(true)}
-          aria-label="Open settings"
-        >
-          ⚙️ Settings
-        </button>
-      </div>
-
-      {showSettings && (
-        <SettingsPanel
-          settings={settings}
-          onToggleTheme={toggleTheme}
-          onToggleSound={toggleSound}
-          onToggleMotion={toggleReducedMotion}
-          onToggleContrast={toggleHighContrast}
-          onVolumeChange={setVolume}
-          onDifficultyChange={setDifficulty}
-          onClose={() => setShowSettings(false)}
-        />
-      )}
-      {currentScreen === "start" && (
-        <StartScreen
-          onNewGame={handleNewGame}
-          onBuildDeck={handleBuildDeck}
-          onImportDeck={handleImportDeck}
-          onInstructions={handleInstructions}
-        />
-      )}
-      {currentScreen === "instructions" && (
-        <Instructions onBack={handleBackToMenu} />
-      )}
-      {currentScreen === "deckbuilder" && (
-        <DeckBuilder
-          onDeckComplete={handleDeckComplete}
-          onBack={handleBackToMenu}
-        />
-      )}
-      {currentScreen === "game" && playerDeck && (
-        <GameBoard
-          playerDeck={playerDeck}
-          onBackToMenu={handleBackToMenu}
-          difficulty={settings.difficulty}
-          soundEnabled={settings.soundEnabled}
-          volume={settings.volume}
-        />
-      )}
+      <AppShell
+        header={(
+          <button
+            type="button"
+            className="settings-btn"
+            onClick={() => setShowSettings(true)}
+            aria-label="Open settings"
+          >
+            ⚙️ Settings
+          </button>
+        )}
+        footer={(
+          <span className="footer-text">© Copyright 2026 Frankenclowns ABN: 45 685 376 900</span>
+        )}
+      >
+        {showSettings && (
+          <SettingsPanel
+            settings={settings}
+            onToggleTheme={toggleTheme}
+            onToggleSound={toggleSound}
+            onToggleMotion={toggleReducedMotion}
+            onToggleContrast={toggleHighContrast}
+            onVolumeChange={setVolume}
+            onDifficultyChange={setDifficulty}
+            onClose={() => setShowSettings(false)}
+          />
+        )}
+        {currentScreen === "start" && (
+          <StartScreen
+            onNewGame={handleNewGame}
+            onBuildDeck={handleBuildDeck}
+            onImportDeck={handleImportDeck}
+            onInstructions={handleInstructions}
+          />
+        )}
+        {currentScreen === "instructions" && (
+          <Instructions onBack={handleBackToMenu} />
+        )}
+        {currentScreen === "deckbuilder" && (
+          <DeckBuilder
+            onDeckComplete={handleDeckComplete}
+            onBack={handleBackToMenu}
+          />
+        )}
+        {currentScreen === "game" && playerDeck && (
+          <GameBoard
+            playerDeck={playerDeck}
+            onBackToMenu={handleBackToMenu}
+            difficulty={settings.difficulty}
+            soundEnabled={settings.soundEnabled}
+            volume={settings.volume}
+          />
+        )}
+      </AppShell>
     </div>
   );
 }

@@ -34,7 +34,8 @@ describe('Game Logic Edge Cases', () => {
     fireEvent.click(screen.getByText(/New Game/i));
     
     fireEvent.click(screen.getByLabelText(/Open settings/i));
-    const difficultySelect = screen.getByRole('combobox');
+    fireEvent.click(screen.getByRole('tab', { name: /Gameplay/i }));
+    const difficultySelect = screen.getByLabelText(/Difficulty/i);
     fireEvent.change(difficultySelect, { target: { value: 'HARD' } });
     
     fireEvent.click(screen.getByLabelText(/Close settings/i));
@@ -77,6 +78,7 @@ describe('Game Logic Edge Cases', () => {
     const themeToggle = screen.getByLabelText(/Dark Mode/i);
     fireEvent.click(themeToggle);
     
+    fireEvent.click(screen.getByRole('tab', { name: /Audio/i }));
     const soundToggle = screen.getByLabelText(/Sound Effects/i);
     fireEvent.click(soundToggle);
     

@@ -2,12 +2,15 @@ import React, { useState, useMemo, useCallback } from "react";
 import PropTypes from 'prop-types';
 import { Deck, CardType } from '@theomegafett/rps-game-logic';
 import { CARD_EMOJIS, CARD_LIMITS } from "../constants/cardEmojis.js";
+import ScreenContainer from './layout/ScreenContainer.jsx';
+import SectionCard from './layout/SectionCard.jsx';
 
 const RARITY_ORDER = { Common: 0, Uncommon: 1, Rare: 2, Legendary: 3 };
 
 function DeckBuilder({ onDeckComplete, onBack }) {
   const [deck, setDeck] = useState(new Deck());
   const [deckCards, setDeckCards] = useState([]);
+  const [activeRarity, setActiveRarity] = useState("Common");
 
   /**
    * Sorted array of card types ordered by rarity (common to legendary)
@@ -19,6 +22,26 @@ function DeckBuilder({ onDeckComplete, onBack }) {
       return RARITY_ORDER[rarityA] - RARITY_ORDER[rarityB];
     });
   }, []);
+
+  /**
+   * Card types grouped by rarity for tabbed navigation
+   */
+  const cardsByRarity = useMemo(() => {
+    const grouped = { Common: [], Uncommon: [], Rare: [], Legendary: [] };
+
+    cardTypes.forEach((cardType) => {
+      const rarity = CARD_LIMITS[cardType]?.rarity || "Common";
+      if (!grouped[rarity]) {
+        grouped[rarity] = [];
+      }
+      grouped[rarity].push(cardType);
+    });
+
+    return grouped;
+  }, [cardTypes]);
+
+  const activeCardTypes = cardsByRarity[activeRarity] || [];
+  const activePanelId = `rarity-panel-${activeRarity.toLowerCase()}`;
 
   /**
    * Memoized card count map for efficient lookups
@@ -124,74 +147,106 @@ function DeckBuilder({ onDeckComplete, onBack }) {
   }, [deckCards.length, cardCountMap]);
 
   return (
-    <div className="deck-builder">
-      <h1>Build Your Deck</h1>
-      <p>Deck Size: {deckCards.length} / 20 (Minimum: 10)</p>
+    <ScreenContainer className="deck-builder" ariaLabel="Deck builder">
+      <SectionCard className="deck-builder-header">
+        <h1>Build Your Deck</h1>
+        <div className="deck-summary">
+          <span className="deck-summary__item">Deck Size: {deckCards.length} / 20</span>
+          <span className="deck-summary__item">Deck Limits: 10 - 20 cards</span>
+          <span className="deck-summary__item">Rarity Limits Apply</span>
+        </div>
+      </SectionCard>
 
-      <div className="card-selection">
-        {cardTypes.map((cardType) => {
-          const count = getCardCount(cardType);
-          const limit = CARD_LIMITS[cardType];
+      <SectionCard className="deck-builder-selection">
+        <div className="tab-list" role="tablist" aria-label="Card rarity tabs">
+          {Object.keys(RARITY_ORDER).map((rarity) => (
+            <button
+              key={rarity}
+              type="button"
+              role="tab"
+              id={`rarity-tab-${rarity.toLowerCase()}`}
+              aria-selected={activeRarity === rarity}
+              aria-controls={`rarity-panel-${rarity.toLowerCase()}`}
+              className={`tab-button ${activeRarity === rarity ? "is-active" : ""}`}
+              onClick={() => setActiveRarity(rarity)}
+            >
+              {rarity}
+            </button>
+          ))}
+        </div>
 
-          return (
-            <div key={cardType} className="card-selector">
-              <div className="card-info">
-                <span className="card-emoji">{CARD_EMOJIS[cardType]}</span>
-                <span className="card-name">{cardType}</span>
-                <span className={`card-rarity ${limit.rarity.toLowerCase()}`}>
-                  {limit.rarity}
-                </span>
-              </div>
-              <div className="card-controls">
-                <button
-                  type="button"
-                  onClick={() => removeCard(cardType)}
-                  disabled={count === 0}
-                  className="btn-small"
-                  aria-label={`Remove ${cardType}`}
-                >
-                  -
-                </button>
-                <span className="card-count">
-                  {count} / {limit.max}
-                </span>
-                <button
-                  type="button"
-                  onClick={() => addCard(cardType)}
-                  disabled={count >= limit.max || deckCards.length >= 20}
-                  className="btn-small"
-                  aria-label={`Add ${cardType}`}
-                >
-                  +
-                </button>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-
-      <div className="deck-actions">
-        <button type="button" onClick={onBack} className="menu-btn secondary">
-          Back
-        </button>
-        <button
-          type="button"
-          onClick={handleExportDeck}
-          className="menu-btn secondary"
-          disabled={deckCards.length === 0}
+        <div
+          className="card-selection"
+          role="tabpanel"
+          id={activePanelId}
+          aria-labelledby={`rarity-tab-${activeRarity.toLowerCase()}`}
         >
-          Export Deck
-        </button>
-        <button
-          type="button"
-          onClick={handleStartGame}
-          className="menu-btn"
-          disabled={!deck.isValid()}
-        >
-          Start Game
-        </button>
-      </div>
-    </div>
+          {activeCardTypes.map((cardType) => {
+            const count = getCardCount(cardType);
+            const limit = CARD_LIMITS[cardType];
+
+            return (
+              <div key={cardType} className="card-selector">
+                <div className="card-info">
+                  <span className="card-emoji">{CARD_EMOJIS[cardType]}</span>
+                  <span className="card-name">{cardType}</span>
+                  <span className={`card-rarity ${limit.rarity.toLowerCase()}`}>
+                    {limit.rarity}
+                  </span>
+                </div>
+                <div className="card-controls">
+                  <button
+                    type="button"
+                    onClick={() => removeCard(cardType)}
+                    disabled={count === 0}
+                    className="btn-small"
+                    aria-label={`Remove ${cardType}`}
+                  >
+                    -
+                  </button>
+                  <span className="card-count">
+                    {count} / {limit.max}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => addCard(cardType)}
+                    disabled={count >= limit.max || deckCards.length >= 20}
+                    className="btn-small"
+                    aria-label={`Add ${cardType}`}
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </SectionCard>
+
+      <SectionCard className="deck-builder-actions">
+        <div className="deck-actions">
+          <button type="button" onClick={onBack} className="menu-btn secondary">
+            Back
+          </button>
+          <button
+            type="button"
+            onClick={handleExportDeck}
+            className="menu-btn secondary"
+            disabled={deckCards.length === 0}
+          >
+            Export Deck
+          </button>
+          <button
+            type="button"
+            onClick={handleStartGame}
+            className="menu-btn"
+            disabled={!deck.isValid()}
+          >
+            Start Game
+          </button>
+        </div>
+      </SectionCard>
+    </ScreenContainer>
   );
 }
 

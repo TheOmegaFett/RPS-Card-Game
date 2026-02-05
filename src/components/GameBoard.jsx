@@ -6,6 +6,8 @@ import ScoreBoard from './ScoreBoard.jsx';
 import MatchupDisplay from './MatchupDisplay.jsx';
 import GameOver from './GameOver.jsx';
 import DeckPile from './DeckPile.jsx';
+import ScreenContainer from './layout/ScreenContainer.jsx';
+import SectionCard from './layout/SectionCard.jsx';
 
 function GameBoard({ playerDeck, onBackToMenu, difficulty, soundEnabled, volume }) {
   const [gameController] = useState(() => new GameController());
@@ -101,7 +103,7 @@ function GameBoard({ playerDeck, onBackToMenu, difficulty, soundEnabled, volume 
   }
 
   return (
-    <div className="game-board">
+    <ScreenContainer className="game-board" ariaLabel="Game board">
       <div className="game-header">
         <button type="button" className="menu-btn back-btn" onClick={onBackToMenu}>
           Back to Menu
@@ -110,20 +112,20 @@ function GameBoard({ playerDeck, onBackToMenu, difficulty, soundEnabled, volume 
 
       <ScoreBoard playerScore={score.player} aiScore={score.ai} />
       
-      <div className="ai-section">
+      <SectionCard className="ai-section">
         <h3>AI Hand: {gameController.ai?.hand.length || 0} cards</h3>
-      </div>
+      </SectionCard>
       
-      <div className="deck-piles-container">
-        <DeckPile 
-          cardCount={gameController.ai?.deck.length || 0} 
-          label="AI Deck"
-        />
+      <SectionCard className="deck-piles-container">
         <DeckPile 
           cardCount={gameController.player?.deck.length || 0} 
           label="Your Deck"
         />
-      </div>
+        <DeckPile 
+          cardCount={gameController.ai?.deck.length || 0} 
+          label="AI Deck"
+        />
+      </SectionCard>
 
       <MatchupDisplay 
         playerCard={playerCard} 
@@ -134,7 +136,7 @@ function GameBoard({ playerDeck, onBackToMenu, difficulty, soundEnabled, volume 
       />
       
       <PlayerHand hand={hand} onCardClick={handleCardClick} disabled={!cardsClickable} />
-    </div>
+    </ScreenContainer>
   );
 }
 

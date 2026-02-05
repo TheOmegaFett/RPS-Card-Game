@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { CARD_EMOJIS } from '../constants/cardEmojis.js';
 import FlipCard from './FlipCard.jsx';
 import { useAudio } from '../hooks/useAudio.js';
+import SectionCard from './layout/SectionCard.jsx';
 
 function MatchupDisplay({ playerCard, aiCard, result, soundEnabled, volume }) {
   const { playCountdown, playGo, playCardFlip, playWin, playLoss, playDraw } = useAudio(soundEnabled, volume);
@@ -64,6 +65,13 @@ function MatchupDisplay({ playerCard, aiCard, result, soundEnabled, volume }) {
     return "";
   };
 
+  const renderCardFace = (card, isPlayer) => (
+    <div className={`card-front card-face card-face--hand ${getCardClass(isPlayer)}`}>
+      <span className="card-side-label">{isPlayer ? "Player" : "AI"}</span>
+      <span className="card-emoji">{CARD_EMOJIS[card?.type]}</span>
+    </div>
+  );
+
   const cardBack = (
     <div className="card-back">
       <div className="card-back-pattern">🎴</div>
@@ -71,43 +79,39 @@ function MatchupDisplay({ playerCard, aiCard, result, soundEnabled, volume }) {
   );
 
   const playerCardFront = displayedPlayerCard ? (
-    <div className={`card-front ${getCardClass(true)}`}>
-      <div className="card-emoji">{CARD_EMOJIS[displayedPlayerCard.type]}</div>
-      <div className="card-label">Player</div>
-    </div>
+    renderCardFace(displayedPlayerCard, true)
   ) : cardBack;
 
   const aiCardFront = displayedAiCard ? (
-    <div className={`card-front ${getCardClass(false)}`}>
-      <div className="card-emoji">{CARD_EMOJIS[displayedAiCard.type]}</div>
-      <div className="card-label">AI</div>
-    </div>
+    renderCardFace(displayedAiCard, false)
   ) : cardBack;
 
   return (
-    <div className="matchup-display">
+    <SectionCard className="matchup-display">
       {countdown !== null && (
         <div className="countdown-overlay">
           <div className="countdown-text">{countdown}</div>
         </div>
       )}
       {showCards && <h3 className="result-text">{result}</h3>}
-      <div className="matchup-cards">
-        <FlipCard
-          front={cardBack}
-          back={playerCardFront}
-          isFlipped={showCards}
-          className="matchup-flip-card"
-        />
-        <div className="vs">VS</div>
-        <FlipCard
-          front={cardBack}
-          back={aiCardFront}
-          isFlipped={showCards}
-          className="matchup-flip-card"
-        />
+      <div className="matchup-stage">
+        <div className="matchup-cards">
+          <FlipCard
+            front={cardBack}
+            back={playerCardFront}
+            isFlipped={showCards}
+            className="matchup-flip-card"
+          />
+          <div className="vs">VS</div>
+          <FlipCard
+            front={cardBack}
+            back={aiCardFront}
+            isFlipped={showCards}
+            className="matchup-flip-card"
+          />
+        </div>
       </div>
-    </div>
+    </SectionCard>
   );
 }
 

@@ -32,10 +32,10 @@ describe('SettingsPanel', () => {
 
   test('renders all sections', () => {
     render(<SettingsPanel settings={mockSettings} {...mockHandlers} />);
-    expect(screen.getByText('Appearance')).toBeInTheDocument();
-    expect(screen.getByText('Gameplay')).toBeInTheDocument();
-    expect(screen.getByText('Audio')).toBeInTheDocument();
-    expect(screen.getByText('Accessibility')).toBeInTheDocument();
+    expect(screen.getByRole('tab', { name: /Appearance/i })).toBeInTheDocument();
+    expect(screen.getByRole('tab', { name: /Gameplay/i })).toBeInTheDocument();
+    expect(screen.getByRole('tab', { name: /Audio/i })).toBeInTheDocument();
+    expect(screen.getByRole('tab', { name: /Accessibility/i })).toBeInTheDocument();
   });
 
   test('dark mode toggle calls handler', () => {
@@ -47,6 +47,7 @@ describe('SettingsPanel', () => {
 
   test('sound toggle calls handler', () => {
     render(<SettingsPanel settings={mockSettings} {...mockHandlers} />);
+    fireEvent.click(screen.getByRole('tab', { name: /Audio/i }));
     const toggle = screen.getByLabelText(/Sound Effects/i);
     fireEvent.click(toggle);
     expect(mockHandlers.onToggleSound).toHaveBeenCalledTimes(1);
@@ -61,7 +62,8 @@ describe('SettingsPanel', () => {
 
   test('difficulty select calls handler', () => {
     render(<SettingsPanel settings={mockSettings} {...mockHandlers} />);
-    const select = screen.getByRole('combobox');
+    fireEvent.click(screen.getByRole('tab', { name: /Gameplay/i }));
+    const select = screen.getByLabelText(/Difficulty/i);
     fireEvent.change(select, { target: { value: 'HARD' } });
     expect(mockHandlers.onDifficultyChange).toHaveBeenCalledWith('HARD');
   });

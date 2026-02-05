@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import SectionCard from './layout/SectionCard.jsx';
 
 function ScoreBoard({ playerScore, aiScore }) {
   return (
-    <div className="scoreboard">
+    <SectionCard className="scoreboard">
       <h3>Score - Player: {playerScore} | AI: {aiScore}</h3>
-    </div>
+    </SectionCard>
   );
 }
 

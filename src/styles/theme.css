@@ -9,11 +9,32 @@
   --text-primary: #ffffff;
   --text-secondary: #f0f0f0;
   --text-dark: #333333;
+
+  --screen-max: 1100px;
+  --screen-padding: clamp(0.75rem, 2.5vmin, 2rem);
+  --space-1: clamp(0.35rem, 1vmin, 0.75rem);
+  --space-2: clamp(0.6rem, 1.6vmin, 1.25rem);
+  --space-3: clamp(1rem, 2.6vmin, 2rem);
+  --space-4: clamp(1.4rem, 3.6vmin, 2.8rem);
+  --radius-1: 12px;
+  --radius-2: 18px;
+  --header-height: clamp(52px, 8vmin, 80px);
+
+  --font-title: clamp(1.6rem, 4.2vmin, 2.8rem);
+  --font-subtitle: clamp(1.1rem, 2.6vmin, 1.6rem);
+  --font-body: clamp(0.95rem, 2.1vmin, 1.1rem);
+
+  --hand-card-width: clamp(60px, 18vmin, 120px);
+  --hand-card-height: calc(var(--hand-card-width) * 0.75);
+  --hand-emoji-size: clamp(1.2rem, 4.2vmin, 2.2rem);
   
   --card-bg: #ffffff;
   --card-text: #333333;
   --card-shadow: rgba(0, 0, 0, 0.2);
   --card-hover-bg: #f0f0f0;
+
+  --panel-bg: rgba(255, 255, 255, 0.12);
+  --panel-border: rgba(255, 255, 255, 0.2);
   
   --overlay-bg: rgba(255, 255, 255, 0.1);
   --overlay-shadow: rgba(0, 0, 0, 0.5);
@@ -26,6 +47,10 @@
   --winner-bg: lightgreen;
   --winner-glow: rgba(144, 238, 144, 0.8);
   --loser-bg: lightcoral;
+
+  --result-win: #4caf50;
+  --result-loss: #f44336;
+  --result-draw: #ff9800;
   
   --header-bg: rgba(0, 0, 0, 0.2);
   --toggle-bg: rgba(255, 255, 255, 0.2);
@@ -65,4 +90,32 @@ body {
   background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
   color: var(--text-primary);
   transition: background 0.3s ease, color 0.3s ease;
+}
+
+@media (max-height: 700px) {
+  :root {
+    --header-height: clamp(44px, 7vmin, 64px);
+    --screen-padding: clamp(0.5rem, 2vmin, 1.25rem);
+    --space-1: clamp(0.3rem, 0.9vmin, 0.6rem);
+    --space-2: clamp(0.5rem, 1.4vmin, 1rem);
+    --space-3: clamp(0.8rem, 2vmin, 1.5rem);
+    --space-4: clamp(1rem, 2.8vmin, 2rem);
+    --font-title: clamp(1.3rem, 4vmin, 2.3rem);
+    --font-subtitle: clamp(1rem, 2.4vmin, 1.4rem);
+    --font-body: clamp(0.85rem, 2vmin, 1rem);
+  }
+}
+
+@media (max-height: 420px) {
+  :root {
+    --header-height: 44px;
+    --screen-padding: 0.5rem;
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --font-title: 1.2rem;
+    --font-subtitle: 0.95rem;
+    --font-body: 0.8rem;
+  }
 }

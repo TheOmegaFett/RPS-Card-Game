@@ -37,6 +37,7 @@ describe('Additional Edge Cases', () => {
     render(<App />);
     fireEvent.click(screen.getByLabelText(/Open settings/i));
     
+    fireEvent.click(screen.getByRole('tab', { name: /Audio/i }));
     const volumeSlider = screen.getByLabelText(/Volume level/i);
     fireEvent.change(volumeSlider, { target: { value: '100' } });
     
@@ -72,6 +73,7 @@ describe('Additional Edge Cases', () => {
     
     fireEvent.click(screen.getByLabelText(/Open settings/i));
     fireEvent.click(screen.getByLabelText(/Dark Mode/i));
+    fireEvent.click(screen.getByRole('tab', { name: /Audio/i }));
     fireEvent.click(screen.getByLabelText(/Sound Effects/i));
     fireEvent.click(screen.getByLabelText(/Close settings/i));
     

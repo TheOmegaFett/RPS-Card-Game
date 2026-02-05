@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import CardButton from './CardButton.jsx';
+import SectionCard from './layout/SectionCard.jsx';
 
 function PlayerHand({ hand, onCardClick, disabled }) {
   return (
-    <div className="player-hand">
+    <SectionCard className="player-hand">
       <h3>Your Hand:</h3>
       <div className="hand-cards">
         {hand.map((card, index) => (
@@ -16,7 +17,7 @@ function PlayerHand({ hand, onCardClick, disabled }) {
           />
         ))}
       </div>
-    </div>
+    </SectionCard>
   );
 }
 
